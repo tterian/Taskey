@@ -1,0 +1,29 @@
+<div ng-controller="AppCtrl" layout="column" layout-fill>
+	<md-toolbar md-scroll-shrink>
+		<div class="md-toolbar-tools">
+			<h3>
+				<span>Rails Ninja</span>
+			</h3>
+		</div>
+	</md-toolbar>
+</div>
+
+
+<md-content class="md-padding">
+	<h1>Post a task</h1>
+	<form name="taskForm" ng-submit="postTask(task)">
+		<md-input-container flex>
+			<label>Title</label>
+			<input type"text" ng-model="task.title" placeholder="Task title" required>
+		</md-input-container>
+		<md-input-container flex>
+			<label>Description</label>
+			<textarea ng-model="task.description" placeholder="What you need to do?" md-maxlength="150" required></textarea>
+		</md-input-container>
+		<md-input-container flex>
+			<label>Total</label>
+			<input type="number" ng-model="task.total" placeholder="How much are you willing to pay?" required>
+		</md-input-container>		
+		<md-button type="submit" value="Post" class="md-raised md-primary">Post</md-button>
+	</form>
+</md-content>

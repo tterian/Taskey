@@ -1,0 +1,36 @@
+<div ng-controller="AppCtrl" layout="column" layout-fill>
+	<md-toolbar md-scroll-shrink>
+		<div class="md-toolbar-tools">
+			<h3>
+				<span>Rails Ninja</span>
+			</h3>
+		</div>
+	</md-toolbar>
+</div>
+
+<md-content class="md-padding">
+
+	<md-input-container flex>
+		<input type"text" ng-model="searchTask">
+	</md-input-container>
+
+
+	<a href="#/post">
+		<md-button class="md-raised">Post a task</md-button>	
+	</a>
+	
+	<md-list>
+		<md-item ng-repeat="task in tasks | filter: searchTask">
+			<md-item-content>
+				<div class="md-tile-content">
+					<h3>{{task.title}}</h3>
+					<h4>{{task.description | limitTo:25}}{{task.description.length > 25? "..." : ""}}</h4>
+					<p>
+						{{task.total | currency:"$":0 }}
+					</p>
+					<a ng-href="#/edit/{{task.id}}">edit</a>
+				</div>
+			</md-item-content>
+		</md-item>
+	</md-list>
+</md-content>
