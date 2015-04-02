@@ -6,7 +6,8 @@
 			"angular-route": "latest",
 			"angular-animate": "latest",
 			"angular-resource": "latest",
-			"angular-material": "latest"
+			"angular-material": "latest",
+			"angular-material-icons": "latest"
 		}
 	},
 	"vendor": {

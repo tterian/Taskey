@@ -3,12 +3,13 @@ var taskApp = angular.module('taskApp', [
 	'ngResource',
 	'ngRoute',
 	'ngMaterial',
+	'ngMdIcons',
 	'ngAria',
 	'appServices',
 	'appControllers'
 	]);
 
-taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+taskApp.config(['$routeProvider', '$locationProvider', '$mdThemingProvider', function($routeProvider, $locationProvider, $mdThemingProvider) {
 	$routeProvider
 		.when('/', {
 			controller: 'TaskController',
@@ -28,4 +29,5 @@ taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, 
 		})
 		.otherwise({redirectTo: '/'
 		});
+
 }]);

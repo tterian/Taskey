@@ -17,6 +17,7 @@
 //= require angular-resource
 //= require angular-animate
 //= require angular-material
+//= require angular-material-icons
 //= require angular-aria
 
 //= require_tree ./angular-app/templates
