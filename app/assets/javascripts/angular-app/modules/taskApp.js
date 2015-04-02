@@ -9,7 +9,7 @@ var taskApp = angular.module('taskApp', [
 	'appControllers'
 	]);
 
-taskApp.config(['$routeProvider', '$locationProvider', '$mdThemingProvider', function($routeProvider, $locationProvider, $mdThemingProvider) {
+taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
 			controller: 'TaskController',
@@ -29,5 +29,25 @@ taskApp.config(['$routeProvider', '$locationProvider', '$mdThemingProvider', fun
 		})
 		.otherwise({redirectTo: '/'
 		});
+
+}]);
+
+taskApp.config(['$mdThemingProvider', function($mdThemingProvider) {
+	var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
+		'contrastDefaultColor': 'light',
+		'contrastDarkColors': ['50'],
+		'50': 'ffffff'
+	});
+
+	$mdThemingProvider.definePalette('customBlue', customBlueMap);
+	$mdThemingProvider.theme('default')
+	.primaryPalette('customBlue', {
+			'default': '500',
+			'hue-1': '50'
+	})
+	.accentPalette('pink');
+
+	$mdThemingProvider.theme('input', 'default')
+	.primaryPalette('grey')
 
 }]);
