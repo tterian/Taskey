@@ -1,44 +1,7 @@
 var appControllers = angular.module('appControllers', []);
 
-appControllers.controller('TaskController', ['$scope', '$location', '$mdSidenav', '$mdDialog', '$mdBottomSheet', 'Task', function($scope, $location, $mdSidenav, $mdDialog, $mdBottomSheet, Task) {
+appControllers.controller('TaskController', ['$scope', '$location', '$mdDialog', '$mdBottomSheet', 'Task', function($scope, $location, $mdDialog, $mdBottomSheet, Task) {
 	
-	//Side Menu toggling for small devices
-	$scope.toggleSidenav = function(menuId) {
-		$mdSidenav(menuId).toggle();
-	};
-
-	//Side menu items
-	$scope.menu = [
-			{
-				link : '',
-				title: 'Dashboard',
-				icon: 'dashboard'
-			},
-			{
-				link : '',
-				title: 'Friends',
-				icon: 'group'
-			},
-			{
-				link : '',
-				title: 'Messages',
-				icon: 'message'
-			}
-	];
-
-	//Side menu items (admin)
-	$scope.admin = [
-			{
-				link : '',
-				title: 'Trash',
-				icon: 'delete'
-			},
-			{
-				link : 'showListBottomSheet($event)',
-				title: 'Settings',
-				icon: 'settings'
-			}
-	];
 
 	//Invoke a modal dialog and add a post from the dialog
 	$scope.addTask = function(ev) {

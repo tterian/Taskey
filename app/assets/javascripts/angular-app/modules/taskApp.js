@@ -32,7 +32,7 @@ taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, 
 
 }]);
 
-taskApp.config(['$mdThemingProvider', function($mdThemingProvider) {
+taskApp.config(function($mdThemingProvider) {
 	var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
 		'contrastDefaultColor': 'light',
 		'contrastDarkColors': ['50'],
@@ -48,6 +48,7 @@ taskApp.config(['$mdThemingProvider', function($mdThemingProvider) {
 	.accentPalette('pink');
 
 	$mdThemingProvider.theme('input', 'default')
-	.primaryPalette('grey')
+		.primaryPalette('grey')
+		.backgroundPalette('grey');
 
-}]);
+});
