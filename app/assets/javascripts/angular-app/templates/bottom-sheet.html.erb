@@ -1,0 +1,39 @@
+<md-bottom-sheet class="md-list md-has-header">
+	<md-subheader>Account</md-subheader>
+	<md-list>
+		<md-item>
+			<md-item-content md-ink-ripple flex class="inset">
+				<a flex aria-label="login" ng-click="userLogIn($event)">
+					<span class="md-inline-list-icon-label">Login</span>
+				</a>
+			</md-item-content>
+		</md-item>
+
+		<md-item>
+			<md-item-content md-ink-ripple flex class="inset">
+				<a flex aria-label="logout" ng-click="userLogOut1($event)">
+					<span class="md-inline-list-icon-label">Logout</span>
+				</a>
+			</md-item-content>
+		</md-item>
+
+		<md-item>
+			<md-item-content md-ink-ripple flex class="inset">
+				<a flex aria-label="register" ng-click="userRegister($event)">
+					<span class="md-inline-list-icon-label">Register</span>
+				</a>
+			</md-item-content>
+		</md-item>
+
+	</md-list>
+	<md-subheader>Other Stuff</md-subheader>
+		<md-list>
+			<md-item>
+				<md-item-content md-ink-ripple flex class="inset">
+					<a flex aria-label="about" ng-click="aboutUs($event)">
+						<span class="md-inline-list-icon-label">About Us</span>
+					</a>
+				</md-item-content>
+			</md-item>
+		</md-list>
+</md-bottom-sheet>

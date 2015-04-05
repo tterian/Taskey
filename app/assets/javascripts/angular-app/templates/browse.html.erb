@@ -31,7 +31,7 @@
 
 			<div class="inset" hide-sm></div>
 				<md-list>
-					<md-item ng-repeat="task in tasks | filter:searchTask">
+					<md-item ng-repeat="task in tasks | filter:searchTask | orderBy:updatedAt">
 						<md-item-content>
 							<md-card flex-gt-sm="90" flex-gt-md="80">
 								<div class="md-tile-content">
@@ -40,7 +40,9 @@
 									<p>
 										{{task.total | currency:"$":0}}
 									</p>
-									<a ng-href="#/edit/{{task.id}}">edit</a>
+									<md-button ng-click="editTask(task)" class="md-primary">
+										Edit
+									</md-button>
 								</div>
 							</md-card>
 						</md-item-content>

@@ -6,7 +6,8 @@ var taskApp = angular.module('taskApp', [
 	'ngMdIcons',
 	'ngAria',
 	'appServices',
-	'appControllers'
+	'appControllers',
+	'Devise'
 	]);
 
 taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -18,11 +19,7 @@ taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, 
 		.when('/post', {
 			controller: 'TaskController',
 			templateUrl: 'assets/angular-app/templates/post.html.erb'
-		})
-		.when('/edit/:taskId', {
-			controller: 'UpdateController',
-			templateUrl: 'assets/angular-app/templates/edit.html.erb'
-		})
+		})	
 		.when('/browse', {
 			controller: 'TaskController',
 			templateUrl: 'assets/angular-app/templates/browse.html.erb'
@@ -32,6 +29,7 @@ taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, 
 
 }]);
 
+//Custom theme
 taskApp.config(function($mdThemingProvider) {
 	var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
 		'contrastDefaultColor': 'light',

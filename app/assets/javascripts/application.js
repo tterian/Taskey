@@ -19,6 +19,7 @@
 //= require angular-material
 //= require angular-material-icons
 //= require angular-aria
+//= require angular-devise
 
 //= require_tree ./angular-app/templates
 //= require_tree ./angular-app/controllers
