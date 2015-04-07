@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
 
 	respond_to :json
+	
 
 	def index
-		tasks = Task.all
-		respond_with tasks
+		respond_with Task.all
 	end
 
 	def create
@@ -38,7 +38,8 @@ class TasksController < ApplicationController
 		attributes = [
 			:title,
 			:description,
-			:total
+			:total,
+			:user_id
 		]
 		params.require(:task).permit(attributes)
 	end

@@ -5,9 +5,9 @@ var taskApp = angular.module('taskApp', [
 	'ngMaterial',
 	'ngMdIcons',
 	'ngAria',
+	'ng-token-auth',
 	'appServices',
-	'appControllers',
-	'Devise'
+	'appControllers'
 	]);
 
 taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -15,7 +15,7 @@ taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, 
 		.when('/', {
 			controller: 'TaskController',
 			templateUrl: 'assets/angular-app/templates/browse.html.erb'
-		})
+		})		
 		.when('/post', {
 			controller: 'TaskController',
 			templateUrl: 'assets/angular-app/templates/post.html.erb'

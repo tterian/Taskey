@@ -13,7 +13,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bower-rails'
 gem 'responders', '~> 2.0'
 
-gem 'devise'
+gem 'devise_token_auth'
+
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 
 group :production, :staging do
 	gem "rails_12factor"

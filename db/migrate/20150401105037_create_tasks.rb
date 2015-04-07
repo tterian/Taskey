@@ -8,6 +8,6 @@ class CreateTasks < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :tasks, :users
+
   end
 end

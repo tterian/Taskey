@@ -1,7 +1,7 @@
 <md-bottom-sheet class="md-list md-has-header">
-	<md-subheader>Account</md-subheader>
+	<md-subheader>Account settings</md-subheader>
 	<md-list>
-		<md-item>
+		<md-item ng-hide="user.signedIn">
 			<md-item-content md-ink-ripple flex class="inset">
 				<a flex aria-label="login" ng-click="userLogIn($event)">
 					<span class="md-inline-list-icon-label">Login</span>
@@ -9,15 +9,15 @@
 			</md-item-content>
 		</md-item>
 
-		<md-item>
+		<md-item ng-show="user.signedIn">
 			<md-item-content md-ink-ripple flex class="inset">
-				<a flex aria-label="logout" ng-click="userLogOut1($event)">
+				<a flex aria-label="logout" ng-click="userLogOut($event)">
 					<span class="md-inline-list-icon-label">Logout</span>
 				</a>
 			</md-item-content>
 		</md-item>
 
-		<md-item>
+		<md-item ng-hide="user.signedIn">
 			<md-item-content md-ink-ripple flex class="inset">
 				<a flex aria-label="register" ng-click="userRegister($event)">
 					<span class="md-inline-list-icon-label">Register</span>
