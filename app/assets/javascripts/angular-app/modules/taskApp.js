@@ -1,36 +1,43 @@
-var taskApp = angular.module('taskApp', [
-	'ngAnimate',
-	'ngResource',
-	'ngRoute',
-	'ngMaterial',
-	'ngMdIcons',
-	'ngAria',
-	'ng-token-auth',
-	'appServices',
-	'appControllers'
-	]);
+angular
+	.module('taskApp', [
+		'ngAnimate',
+		'ngResource',
+		'ngRoute',
+		/* Material framework */
+		'ngMaterial',
+		'ngMdIcons',
+		'ngAria',
+		/* Authetication */
+		'ng-token-auth'
+		])
+	.config(config)
+	.config(theme)
+	.factory('Task', Task)
+	.controller('TasksController', TasksController)
+	.controller('UsersController', UsersController)
+	.controller('UsersController', UsersController)
+	.controller('PostDialogController', PostDialogController)
+	.controller('EditDialogController', EditDialogController)
+	.controller('UserDialogController', UserDialogController);
 
-taskApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+
+function config($routeProvider) {
 	$routeProvider
 		.when('/', {
-			controller: 'TaskController',
+			controller: 'TasksController',
 			templateUrl: 'assets/angular-app/templates/browse.html.erb'
 		})		
-		.when('/post', {
-			controller: 'TaskController',
-			templateUrl: 'assets/angular-app/templates/post.html.erb'
-		})	
 		.when('/browse', {
-			controller: 'TaskController',
+			controller: 'TasksController',
 			templateUrl: 'assets/angular-app/templates/browse.html.erb'
 		})
 		.otherwise({redirectTo: '/'
 		});
+}
 
-}]);
 
 //Custom theme
-taskApp.config(function($mdThemingProvider) {
+function theme($mdThemingProvider) {
 	var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
 		'contrastDefaultColor': 'light',
 		'contrastDarkColors': ['50'],
@@ -49,4 +56,4 @@ taskApp.config(function($mdThemingProvider) {
 		.primaryPalette('grey')
 		.backgroundPalette('grey');
 
-});
+};
