@@ -1,0 +1,38 @@
+<md-dialog aria-label="post Task" class="md-dialog">
+	<md-content class="sticky-container">
+		<md-subheader class="md-sticky-no-effect">Edit a task, its kinda fun!</md-subheader>
+
+		<div class="dialog-content">
+			<form name="userForm">
+				<md-input-container flex>
+					<label>Title</label>
+					<input  	type="text"
+								ng-model="currentTask.title"
+								placeholder="What you need to be done?"
+								required>
+				</md-input-container>
+				<md-input-container flex>
+					<label>Description</label>
+					<textarea 	ng-model="currentTask.description"
+								placeholder="Describe your task here"
+								md-maxlength="150"
+								required>
+					</textarea>
+				</md-input-container>
+				<md-input-container flex>
+					<label>Total</label>
+					<input 		type="number"
+								ng-model="currentTask.total"
+								placeholder="How much are you willing to pay?"
+								required>
+				</md-input-container>
+			</form>
+		</div>
+	</md-content>
+	
+	<div class="md-actions" layout="row">
+		<md-button ng-click="answer(currentTask)" class="md-raised md-primary md-edit">
+			Edit
+		</md-button>
+	</div>
+</md-dialog>

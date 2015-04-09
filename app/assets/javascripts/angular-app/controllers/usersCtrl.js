@@ -11,13 +11,21 @@ function UsersController($scope, $location, $mdBottomSheet, $mdDialog, $mdToast,
 			$auth.submitLogin({
 				email: answer.email,
 				password: answer.password
+			}).then(function() {
+				$mdToast.show(
+					$mdToast.simple()
+						.content('Yay, you have successfully logged in')
+						.position("bottom right")
+						.hideDelay(3000)
+					);
+			}, function(reason) {
+				$mdToast.show(
+					$mdToast.simple()
+						.content("No way! " + reason.errors[0])
+						.position("bottom right")
+						.hideDelay(3000)
+				);
 			});
-			$mdToast.show(
-				$mdToast.simple()
-					.content('Yay, you have successfully logged in')
-					.position("bottom right")
-					.hideDelay(3000)
-			);
 		});
 	};
 
@@ -29,7 +37,6 @@ function UsersController($scope, $location, $mdBottomSheet, $mdDialog, $mdToast,
 			targetEvent: ev
 		})
 		.then(function(answer) {
-			console.log(answer);
 			$auth.submitRegistration({
 				email: answer.email,
 				password: answer.password,
@@ -39,7 +46,7 @@ function UsersController($scope, $location, $mdBottomSheet, $mdDialog, $mdToast,
             		password: answer.password,
           		});
         	});
-			console.log(answer);
+        	
 			$mdToast.show(
 				$mdToast.simple()
 					.content('Hey, thank you for coming in!')

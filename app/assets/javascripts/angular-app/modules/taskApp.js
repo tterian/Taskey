@@ -8,7 +8,9 @@ angular
 		'ngMdIcons',
 		'ngAria',
 		/* Authetication */
-		'ng-token-auth'
+		'ng-token-auth',
+		/* Time ago and more */
+		'angularMoment'
 		])
 	.config(config)
 	.config(theme)
@@ -20,7 +22,7 @@ angular
 	.controller('EditDialogController', EditDialogController)
 	.controller('UserDialogController', UserDialogController);
 
-
+//Config routes
 function config($routeProvider) {
 	$routeProvider
 		.when('/', {

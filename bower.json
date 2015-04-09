@@ -8,6 +8,7 @@
 			"angular-resource": "latest",
 			"angular-material": "latest",
 			"angular-material-icons": "latest",
+			"angular-moment": "latest",
 			"ng-token-auth": "latest",
 			"angular-cookie": "latest"
 		}

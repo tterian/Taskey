@@ -1,29 +1,29 @@
-<md-dialog aria-label="signin User" class="tt-dialog">
+<md-dialog aria-label="signin User" class="md-dialog">
 	<md-content class="sticky-container">
-		<h3>Come in</h3>
-		<form name="userForm">
-			<md-input-container flex>
-				<label>Email address</label>
-				<input 	type="email"
-						ng-model="user.email"
-						placeholder="Enter email"
-						required>
-			</md-input-container>
-			<md-input-container flex>
-				<label>Password</label>
-				<input 	type="password"
-						ng-model="user.password"
-						placeholder="Enter pass"
-						required>
-			</md-input-container>
-		</form>
+		<md-subheader class="md-sticky-no-effect">Hey, come in</md-subheader>
+
+		<div class="dialog-content">	
+			<form name="userForm">
+				<md-input-container flex>
+					<label>Email address</label>
+					<input 	type="email"
+							ng-model="user.email"
+							placeholder="Enter email"
+							required>
+				</md-input-container>
+				<md-input-container flex>
+					<label>Password</label>
+					<input 	type="password"
+							ng-model="user.password"
+							placeholder="Enter pass"
+							required>
+				</md-input-container>
+			</form>
+		</div>
 	</md-content>
 	
 	<div class="md-actions" layout="row">
-		<md-button 		type="submit"
-						value="Login"
-						class="md-primary"
-						ng-click="answer(user)">
+		<md-button class="md-raised md-primary" ng-click="answer(user)">
 			Log in
 		</md-button>
 	</div>

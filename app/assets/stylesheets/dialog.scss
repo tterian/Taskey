@@ -1,4 +1,26 @@
-.tt-dialog {
+md-dialog md-content.sticky-container {
+	padding: 0;
+}
+
+md-dialog md-content.sticky-container .dialog-content {
+	padding: 0 24px 24px;
+}
+
+
+.md-dialog {
 	width: 50%;
 	height: auto;
+}
+
+
+.md-sticky-no-effect {
+	width: 100% !important;
+	background: #F44336 !important;
+	text-align: center !important;
+	color: white !important;
+	font-size: 1.5rem !important;
+}
+
+.md-add, .md-edit {
+	background: #F44336 !important;
 }
