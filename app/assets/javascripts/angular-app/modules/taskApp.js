@@ -15,6 +15,7 @@ angular
 	.config(config)
 	.config(theme)
 	.factory('Task', Task)
+	.factory('User', User)
 	.controller('TasksController', TasksController)
 	.controller('UsersController', UsersController)
 	.controller('UsersController', UsersController)

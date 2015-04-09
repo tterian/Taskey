@@ -9,5 +9,7 @@
 //}]);
 
 function Task($resource) {
+
+
 	return $resource('/api/tasks/:id', {id: '@id'}, {update: {method: 'PATCH'}});
 };

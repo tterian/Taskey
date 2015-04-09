@@ -15,6 +15,7 @@ function TasksController($scope, $location, $mdDialog, $mdBottomSheet, Task) {
 			var task = new Task(
 				{
 					title: answer.title,
+					status: 'open',
 					description: answer.description,
 					total: answer.total,
 					user_id: $scope.user.id
@@ -51,27 +52,10 @@ function TasksController($scope, $location, $mdDialog, $mdBottomSheet, Task) {
 	};
 
 
-  $scope.users = [
-    {
-      name: { first: 'try', last:'try' }
-    },
-    {
-      name: { first: 'try2', last:'try2' }
-    },
-    {
-      name: { first: 'try3', last:'try3' }
-    }];
-    
-    
-    $scope.selectedUserIndex = undefined;
-    $scope.selectUserIndex = function (index) {
-      if ($scope.selectedUserIndex !== index) {
-        $scope.selectedUserIndex = index;
-      }
-      else {
-        $scope.selectedUserIndex = undefined;
-      }
-    };
+
+
+
+
 
 
 };

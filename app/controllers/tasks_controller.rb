@@ -37,6 +37,7 @@ class TasksController < ApplicationController
 	def task_params
 		attributes = [
 			:title,
+			:status,
 			:description,
 			:total,
 			:user_id
