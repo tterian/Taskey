@@ -16,12 +16,12 @@ angular
 	.config(theme)
 	.factory('Task', Task)
 	.factory('User', User)
+	.factory('Sheet', Sheet)
+	.factory('Dialog', Dialog)
+	.factory('Toast', Toast)
 	.controller('TasksController', TasksController)
 	.controller('UsersController', UsersController)
-	.controller('UsersController', UsersController)
-	.controller('PostDialogController', PostDialogController)
-	.controller('EditDialogController', EditDialogController)
-	.controller('UserDialogController', UserDialogController);
+	.controller('EditDialogController', EditDialogController);
 
 //Config routes
 function config($routeProvider) {

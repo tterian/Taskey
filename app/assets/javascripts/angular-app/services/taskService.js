@@ -1,26 +1,26 @@
-//var appServices = angular.module('appServices', ['ngResource']);
-
-//appServices.factory('User', ['$resource', function($resource) {
-//    return $resource('/users/:id', {id: '@id'});
-//}]);
-
-//appServices.factory('Task', ['$resource', function($resource) {
-//	return $resource('/users/:userId/tasks/:id', {userId: '@userId', id: '@id'}, {update: {method: 'PATCH'}});
-//}]);
-
-function Task1($resource) {
+function Task($resource, Toast, User) {
 
 	var tasks = $resource('/api/tasks/:id', {id: '@id'});
+	var currentUser = User.currentUser;
 
 	var Task = {
-		all: tasks,
+		all: tasks.query(),
 
 		getTask: function(taskId) {
-			return tasks.get({id: taskId});
+			var t = tasks.get({id: taskId});
+			return t;
 		},
 
 		createTask: function(task) {
-			return tasks.$add(task);
+			var t = new tasks (
+			{
+				title: task.title,
+				status: 'open',
+				description: task.description,
+				total: task.total,
+				user_id: currentUser.id
+			});
+			return t.$save();
 		},
 
 		editTask: function(task) {
@@ -44,5 +44,4 @@ function Task1($resource) {
 	};
 	return Task;
 
-//	return $resource('/api/tasks/:id', {id: '@id'}, {update: {method: 'PATCH'}});
 };

@@ -1,79 +1,48 @@
-function UsersController($scope, $location, $mdBottomSheet, $mdDialog, $mdToast, $auth) {
+function UsersController($scope, $location, User, Sheet, Dialog, Toast) {
 
-	$scope.userLogIn = function(ev) {
-		$mdBottomSheet.hide()
-		$mdDialog.show({
-			controller: 'UserDialogController',
-			templateUrl: 'assets/angular-app/templates/user-sessions/new.html.erb',
-			targetEvent: ev
-		})
-		.then(function(answer) {
-			$auth.submitLogin({
-				email: answer.email,
-				password: answer.password
-			}).then(function() {
-				$mdToast.show(
-					$mdToast.simple()
-						.content('Yay, you have successfully logged in')
-						.position("bottom right")
-						.hideDelay(3000)
-					);
+	$scope.userLogIn = function(user) {
+		User.userLogIn(user)
+			.then(function() {
+				Dialog.hide();
+				Toast.pop('Yay, you have successfully logged in');
 			}, function(reason) {
-				$mdToast.show(
-					$mdToast.simple()
-						.content("No way! " + reason.errors[0])
-						.position("bottom right")
-						.hideDelay(3000)
-				);
+				Toast.pop('No way, ' + reason.errors[0])
 			});
-		});
+		$location.path('/');
 	};
 
-	$scope.userRegister = function(ev) {
-		$mdBottomSheet.hide()
-		$mdDialog.show({
-			controller: 'UserDialogController',
-			templateUrl: 'assets/angular-app/templates/user-registrations/new.html.erb',
-			targetEvent: ev
-		})
-		.then(function(answer) {
-			$auth.submitRegistration({
-				email: answer.email,
-				password: answer.password,
-			}).then(function() { 
-          		$auth.submitLogin({
-            		email: answer.email,
-            		password: answer.password,
-          		});
-        	});
-        	
-			$mdToast.show(
-				$mdToast.simple()
-					.content('Hey, thank you for coming in!')
-					.position("bottom right")
-					.hideDelay(3000)
-			);
-		});
+	$scope.userRegister = function(user) {
+		User.userRegister(user)
+			.then(function() {
+				Dialog.hide();
+				User.userLogIn(user);
+				Toast.pop('Hey, welcome!');
+			}, function(reason) {
+				Toast.pop('No way, ' + reason.errors[0])
+			});
+		$location.path('/');
 	};
 
 	$scope.userLogOut = function(ev) {
-		$mdBottomSheet.hide()
-		$auth.signOut()
+		User.userLogOut()
 			.then(function() {
-			$mdToast.show(
-				$mdToast.simple()
-					.content('See you later!')
-					.position("bottom right")
-					.hideDelay(3000)
-			);
-		}, function(reason) {
-			$mdToast.show(
-				$mdToast.simple()
-					.content("No way! " + reason.errors[0])
-					.position("bottom right")
-					.hideDelay(3000)
-			);
-		});
+				Toast.pop('See you later!');
+			}, function(reason) {
+				Toast.pop('No way, ' + reason.errors[0])
+			});
+		Sheet.hide();
+		$location.path('/');
 	};
+
+
+	$scope.showModalLogin = function() {
+		Dialog.userLogin();
+		Sheet.hide();
+	}
+
+	$scope.showModalRegister = function() {
+		Dialog.userRegister();
+		Sheet.hide();
+	}
 
 };
