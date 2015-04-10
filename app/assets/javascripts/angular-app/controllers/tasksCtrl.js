@@ -52,10 +52,4 @@ function TasksController($scope, $location, $mdDialog, $mdBottomSheet, Task) {
 	};
 
 
-
-
-
-
-
-
 };

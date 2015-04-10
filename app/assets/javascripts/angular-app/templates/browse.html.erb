@@ -31,6 +31,12 @@
 
 	<!-- task list -->
 	<div flex="33" class="content">
+
+		<md-input-container flex>
+			<label>Search</label>
+			<input type="text" ng-model="searchTask" placeholder="Search a task here">
+		</md-input-container>
+
 		<md-item class="item"	ng-repeat="task in tasks |
 										filter:searchTask |
 										orderBy:updatedAt">
