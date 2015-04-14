@@ -27,10 +27,10 @@
 
 
 <md-content layout="row" flex layout-fill layout-padding>
-	<span flex=15></span>
+	<span flex="15"></span>
 
 	<!-- task list -->
-	<div flex="33" class="content">
+	<div flex="35">
 
 		<md-input-container flex>
 			<label>Search</label>
@@ -43,7 +43,7 @@
 
 			<md-item-content class="user tile" layout="column">
 
-				<div layout="row" layout-fill ng-click="editTask(task.id)">
+				<div layout="row" layout-fill ng-click="getTask(task)">
 					<div class="md-tile-left">
 						<img ng-src="assets/avatar.jpeg" class="md-face">
 					</div>
@@ -56,7 +56,7 @@
 					<div class="md-tile-right md-pricing">
 						<span>{{task.total | currency:"$":0}}</span>
 						<div>
-							<span class="status open">{{task.status}}</span>
+							<span class="md-list-status">{{task.status}}</span>
 						</div>
 					</div>
 				</div>
@@ -66,10 +66,42 @@
 		</md-item>
 	</div>
 
+
 	<!-- task details -->
-	<div flex="33" class="content">
-		<h1 ng-show="currentUser.signedIn" ng-bind="currentUser.email"></h1>
-		<p ng-show="currentUser.signedIn">{{currentUser.id}}</p>
+	<div class="md-details" flex="40" layout="column">
+		<div ng-hide="currentTask">
+			<h3>Click on a task to view its details</h3>
+		</div>
+
+		<div ng-show="currentTask" class="md-header" layout="row">
+			<div flex="75" class="md-title">
+				<h3>{{currentTask.title}}</h3>
+				<span>posted by {{currentTask.poster}}</span>
+				<span am-time-ago="currentTask.created_at"></span>
+			</div>
+
+			<div flex="25" class="md-details-tags" layout="column">
+				<div class="md-details-pricing">
+					<span>{{currentTask.total | currency:"$":0}}</span>	
+				</div>
+				
+				<div class="md-details-status">
+					<span>{{currentTask.status}}</span>
+				</div>
+			</div>
+		</div>
+
+		<div ng-show="currentTask" class="md-description" layout="row">
+			<div flex>
+				<md-card class="md-whiteframe-z2">
+					<md-card-content>
+						<span class="md-description-title">Description</span>
+						<p>{{currentTask.description}}</p>
+					</md-card-content>
+				</md-card>
+			</div>
+		</div>
+
 	</div>
 
 </md-content>

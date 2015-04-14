@@ -16,6 +16,7 @@ function Task($resource, Toast, User) {
 			{
 				title: task.title,
 				status: 'open',
+				poster: currentUser.email,
 				description: task.description,
 				total: task.total,
 				user_id: currentUser.id

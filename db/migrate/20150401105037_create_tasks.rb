@@ -3,6 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.string :title
       t.string :status
+      t.string :poster
       t.text :description
       t.integer :total
       t.references :user, index: true

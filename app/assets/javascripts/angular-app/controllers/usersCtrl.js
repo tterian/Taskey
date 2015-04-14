@@ -3,10 +3,11 @@ function UsersController($scope, $location, User, Sheet, Dialog, Toast) {
 	$scope.userLogIn = function(user) {
 		User.userLogIn(user)
 			.then(function() {
-				Dialog.hide();
 				Toast.pop('Yay, you have successfully logged in');
+				Dialog.hide();
 			}, function(reason) {
 				Toast.pop('No way, ' + reason.errors[0])
+				Dialog.hide();
 			});
 		$location.path('/');
 	};
@@ -14,11 +15,12 @@ function UsersController($scope, $location, User, Sheet, Dialog, Toast) {
 	$scope.userRegister = function(user) {
 		User.userRegister(user)
 			.then(function() {
-				Dialog.hide();
 				User.userLogIn(user);
 				Toast.pop('Hey, welcome!');
+				Dialog.hide();
 			}, function(reason) {
 				Toast.pop('No way, ' + reason.errors[0])
+				Dialog.hide();
 			});
 		$location.path('/');
 	};

@@ -38,6 +38,7 @@ class TasksController < ApplicationController
 		attributes = [
 			:title,
 			:status,
+			:poster,
 			:description,
 			:total,
 			:user_id
