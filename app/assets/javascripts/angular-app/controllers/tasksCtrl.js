@@ -4,6 +4,7 @@ function TasksController($scope, $location, Task, User, Sheet, Dialog, Toast) {
 	$scope.updatedAt = '-updated_at';
 	$scope.currentUser = User.currentUser;
 //	$scope.currentTask = '';
+	$scope.isCreator = 'false';
 
 	
 	$scope.createTask = function(task) {
@@ -27,8 +28,36 @@ function TasksController($scope, $location, Task, User, Sheet, Dialog, Toast) {
 
 
 	$scope.getTask = function(task) {
+//		$scope.currentTask = Task.getTask(task.id);
 		$scope.currentTask = task;
+		$scope.isCreator = Task.isCreator(task);
+//		console.log(Task.getTask(task.id));
 	};
+
+
+	$scope.cancelTask = function(taskId) {
+		Task.cancelTask(taskId);
+	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	$scope.showModal = function(task) {
@@ -36,8 +65,24 @@ function TasksController($scope, $location, Task, User, Sheet, Dialog, Toast) {
 	};
 
 	
-	$scope.showBottomSheet = function(ev) {
-		Sheet.show(ev);
+	$scope.showBottomSheet = function() {
+		Sheet.show();
 	};
+
+
+
+	$scope.showModalLogin = function() {
+		Dialog.userLogin();
+		Sheet.hide();
+	};
+
+	$scope.showModalRegister = function() {
+		Dialog.userRegister();
+		Sheet.hide();
+	};
+
+
+
+
 
 };

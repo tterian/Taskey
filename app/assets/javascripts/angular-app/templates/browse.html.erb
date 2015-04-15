@@ -85,21 +85,37 @@
 					<span>{{currentTask.total | currency:"$":0}}</span>	
 				</div>
 				
-				<div class="md-details-status">
+				<div ng-hide="isCreator" class="md-details-status">
 					<span>{{currentTask.status}}</span>
 				</div>
+
+				<div ng-show="isCreator" class="md-details-status-admin">
+					<md-select placeholder="Admin" ng-model="currentTask.status">
+						<md-option value="open">Open</md-option>
+						<md-option value="closed" ng-click="cancelTask(currentTask.id)">Closed</md-option>
+					</md-select>
+				</div>
+
 			</div>
 		</div>
 
 		<div ng-show="currentTask" class="md-description" layout="row">
 			<div flex>
-				<md-card class="md-whiteframe-z2">
+				<md-card class="md-whiteframe-z1">
 					<md-card-content>
 						<span class="md-description-title">Description</span>
 						<p>{{currentTask.description}}</p>
 					</md-card-content>
 				</md-card>
 			</div>
+		</div>
+
+		<div>
+			{{isCreator}}
+			{{currentUser.email}}
+		</div>
+		<div>
+			{{aaa}}
 		</div>
 
 	</div>

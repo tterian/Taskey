@@ -1,14 +1,22 @@
-function Task($resource, Toast, User) {
+function Task($resource, User) {
 
-	var tasks = $resource('/api/tasks/:id', {id: '@id'});
+	var tasks = $resource('/api/tasks/:taskId', 
+		{
+			taskId: '@id'
+		},
+		{
+			get:    {method: 'GET'},
+			update: {method: 'PATCH'}
+		});
+
+
 	var currentUser = User.currentUser;
 
 	var Task = {
 		all: tasks.query(),
 
 		getTask: function(taskId) {
-			var t = tasks.get({id: taskId});
-			return t;
+			return tasks.get({taskId: taskId});
 		},
 
 		createTask: function(task) {
@@ -24,18 +32,21 @@ function Task($resource, Toast, User) {
 			return t.$save();
 		},
 
-		editTask: function(task) {
-			var t = this.getTask(task.$id);
-			return t.$update({title: task.title, description: task.description, total: task.total});
-		},
+//		editTask: function(task) {
+//			var t = tasks.get({},{'taskId': 1});
+//			return t.$update({title: task.title, description: task.description, total: task.total});
+//		},
 
 		cancelTask: function(taskId) {
-			var t = this.getTask(taskId);
-			return t.$update({status: "cenceled"});
+			var t = tasks.get({'taskId': taskId}, function(task) {
+				task.status = 'closed';
+				task.$update();
+			});
+			return t;
 		},
 
 		isCreator: function(task) {
-			return (user && user.provider && user.uid === task.user_id);
+			return (currentUser.email === task.poster);
 		},
 
 		isOpen: function(task) {

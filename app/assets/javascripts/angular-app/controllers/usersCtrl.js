@@ -25,7 +25,7 @@ function UsersController($scope, $location, User, Sheet, Dialog, Toast) {
 		$location.path('/');
 	};
 
-	$scope.userLogOut = function(ev) {
+	$scope.userLogOut = function() {
 		User.userLogOut()
 			.then(function() {
 				Toast.pop('See you later!');
@@ -36,15 +36,16 @@ function UsersController($scope, $location, User, Sheet, Dialog, Toast) {
 		$location.path('/');
 	};
 
-
 	$scope.showModalLogin = function() {
 		Dialog.userLogin();
 		Sheet.hide();
-	}
+	};
 
 	$scope.showModalRegister = function() {
 		Dialog.userRegister();
 		Sheet.hide();
-	}
+	};
+
+
 
 };
