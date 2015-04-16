@@ -1,7 +1,7 @@
 
 //Controller for edit dialog
-function EditDialogController($scope, $mdDialog, currentTask) {
-	$scope.currentTask = currentTask;
+function DialogController($scope, $mdDialog) {
+
 	$scope.hide = function() {
 		$mdDialog.hide();
 	};

@@ -1,6 +1,7 @@
 
 $grey: #E0E0E0;
 $blue: #03A9F4;
+$red: #F44336;
 
 
 .md-pricing {
@@ -51,11 +52,12 @@ $blue: #03A9F4;
 }
 
 .md-details-status {
-	padding: 5px 20px 5px 20px;
-	color: white;
+	width: 100%;
+	margin-top: 10px;
+	padding: 5px 5px 5px 50px;
+	font-size: 1.5rem;
 	background-color: $blue;
-	font-size: 2.5rem;
-	text-align: center;
+	color: white;
 }
 
 
@@ -65,14 +67,13 @@ $blue: #03A9F4;
 	margin-top: 10px;
 	padding: 2px 10px 2px 10px;
 	color: white;
-	background-color: $blue;	
 }
 
 
 
 .md-description {
 
-	margin-top: 80px;
+	margin-top: 90px;
 
 	.md-description-title {
 		margin-bottom: 10px;
@@ -80,3 +81,10 @@ $blue: #03A9F4;
 	}
 }
 
+.open {
+	background-color: $blue;
+}
+
+.closed {
+	background-color: $red;
+}

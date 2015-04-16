@@ -1,20 +1,26 @@
 <md-toolbar>
 	<div class="md-toolbar-tools">
 		<md-button class="md-icon-button" aria-label="Menu">
-			<md-icon md-svg-icon="assets/svg/md-menu.svg"></md-icon>
+			<md-icon md-svg-icon="assets/svg/md-case.svg"></md-icon>
 		</md-button>
 		<h2>
-			<span>Rails Ninja</span>
+			<span>Taskey</span>
 		</h2>
 
-		<span flex=5></span>
-		<md-button class="md-icon-button" aria-label="Post" ng-show="currentUser.signedIn" ng-click="showModal($event)">
-			<span class="md-nocase">Post a Task</span>
+		<span flex="5"></span>
+		<md-button class="md-icon-button" aria-label="Post" ng-show="user.signedIn" ng-click="showModal($event)">
+			<span class="md-nocase">
+				<md-icon md-svg-icon="assets/svg/md-add.svg"></md-icon>
+				Post a Task
+			</span>
 		</md-button>
 
-		<span flex=5></span>
+		<span flex="5"></span>
 		<md-button class="md-icon-button" aria-label="Browse">
-			<span class="md-nocase">Browse Tasks</span>
+			<span class="md-nocase">
+				<md-icon md-svg-icon="assets/svg/md-list.svg"></md-icon>
+				Browse Tasks
+			</span>
 		</md-button>
 
 		<span flex></span>
@@ -33,8 +39,8 @@
 	<div flex="35">
 
 		<md-input-container flex>
-			<label>Search</label>
-			<input type="text" ng-model="searchTask" placeholder="Search a task here">
+				<md-icon md-svg-icon="assets/svg/md-search.svg" class="name"></md-icon>
+				<input type="text" ng-model="searchTask" placeholder="Search a task here">
 		</md-input-container>
 
 		<md-item class="item"	ng-repeat="task in tasks
@@ -56,7 +62,7 @@
 					<div class="md-tile-right md-pricing">
 						<span>{{task.total | currency:"$":0}}</span>
 						<div>
-							<span class="md-list-status">{{task.status}}</span>
+							<span class="{{task.status}} md-list-status">{{task.status}}</span>
 						</div>
 					</div>
 				</div>
@@ -85,14 +91,10 @@
 					<span>{{currentTask.total | currency:"$":0}}</span>	
 				</div>
 				
-				<div ng-hide="isCreator" class="md-details-status">
-					<span>{{currentTask.status}}</span>
-				</div>
-
-				<div ng-show="isCreator" class="md-details-status-admin">
-					<md-select placeholder="Admin" ng-model="currentTask.status">
+				<div ng-show="isCreator" >
+					<md-select class="md-details-status" placeholder="Admin" ng-model="currentTask.status">
 						<md-option value="open">Open</md-option>
-						<md-option value="closed" ng-click="cancelTask(currentTask.id)">Closed</md-option>
+						<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
 					</md-select>
 				</div>
 
@@ -112,7 +114,7 @@
 
 		<div>
 			{{isCreator}}
-			{{currentUser.email}}
+			{{user.email}}
 		</div>
 		<div>
 			{{aaa}}

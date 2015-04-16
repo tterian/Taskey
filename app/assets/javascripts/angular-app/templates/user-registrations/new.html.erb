@@ -1,11 +1,10 @@
 <md-dialog aria-label="register User" class="md-dialog">
 	<md-content class="sticky-container">
-		<md-subheader class="md-sticky-no-effect">Go ahead and register</md-subheader>
 
 		<div class="dialog-content">
 			<form name="userForm">
 				<md-input-container flex>
-					<label>Email address</label>
+					<md-icon md-svg-icon="assets/svg/md-mail.svg" class="name"></md-icon>
 					<input 	type="email"
 							ng-model="user.email"
 							placeholder="Enter email"
@@ -13,7 +12,7 @@
 				</md-input-container>
 
 				<md-input-container flex>
-					<label>Password</label>
+					<md-icon md-svg-icon="assets/svg/md-lock.svg" class="name"></md-icon>
 					<input 	type="password"
 							ng-model="user.password"
 							placeholder="Enter pass"
@@ -21,7 +20,7 @@
 				</md-input-container>
 
 				<md-input-container flex>
-					<label>Password Confirmation</label>
+					<md-icon md-svg-icon="assets/svg/md-lock.svg" class="name"></md-icon>
 					<input 	type="password"
 							ng-model="user.password_confirmation"
 							placeholder="Enter pass"
@@ -32,7 +31,7 @@
 	</md-content>
 	
 	<div class="md-actions" layout="row">
-		<md-button class="md-raised md-primary" ng-click="userRegister(user)">
+		<md-button class="md-raised md-primary" ng-click="answer(user)">
 			Register
 		</md-button>
 	</div>

@@ -1,18 +1,17 @@
 <md-dialog aria-label="signin User" class="md-dialog">
 	<md-content class="sticky-container">
-		<md-subheader class="md-sticky-no-effect">Hey, come in</md-subheader>
 
 		<div class="dialog-content">	
 			<form name="userForm">
-				<md-input-container flex>
-					<label>Email address</label>
+				<md-input-container layout="column" flex>
+					<md-icon md-svg-icon="assets/svg/md-mail.svg" class="name"></md-icon>
 					<input 	type="email"
 							ng-model="user.email"
 							placeholder="Enter email"
 							required>
 				</md-input-container>
 				<md-input-container flex>
-					<label>Password</label>
+					<md-icon md-svg-icon="assets/svg/md-lock.svg" class="name"></md-icon>
 					<input 	type="password"
 							ng-model="user.password"
 							placeholder="Enter pass"
@@ -23,7 +22,7 @@
 	</md-content>
 	
 	<div class="md-actions" layout="row">
-		<md-button class="md-raised md-primary" ng-click="userLogIn(user)">
+		<md-button class="md-raised md-primary" ng-click="answer(user)">
 			Log in
 		</md-button>
 	</div>

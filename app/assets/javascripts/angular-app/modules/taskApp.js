@@ -17,11 +17,10 @@ angular
 	.factory('Task', Task)
 	.factory('User', User)
 	.factory('Sheet', Sheet)
-	.factory('Dialog', Dialog)
 	.factory('Toast', Toast)
 	.controller('TasksController', TasksController)
 	.controller('UsersController', UsersController)
-	.controller('EditDialogController', EditDialogController);
+	.controller('DialogController', DialogController);
 
 //Config routes
 function config($routeProvider) {
@@ -48,15 +47,12 @@ function theme($mdThemingProvider) {
 	});
 
 	$mdThemingProvider.definePalette('customBlue', customBlueMap);
+	
 	$mdThemingProvider.theme('default')
-	.primaryPalette('customBlue', {
+		.primaryPalette('customBlue', {
 			'default': '500',
 			'hue-1': '50'
-	})
-	.accentPalette('pink');
-
-	$mdThemingProvider.theme('input', 'default')
-		.primaryPalette('grey')
-		.backgroundPalette('grey');
+		})
+		.accentPalette('pink');
 
 };

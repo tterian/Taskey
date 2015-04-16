@@ -1,8 +1,7 @@
-function TasksController($scope, $location, Task, User, Sheet, Dialog, Toast) {
+function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast) {
 
 	$scope.tasks = Task.all;
 	$scope.updatedAt = '-updated_at';
-	$scope.currentUser = User.currentUser;
 //	$scope.currentTask = '';
 	$scope.isCreator = 'false';
 
@@ -61,7 +60,11 @@ function TasksController($scope, $location, Task, User, Sheet, Dialog, Toast) {
 
 
 	$scope.showModal = function(task) {
-		Dialog.addTask(task);
+		$mdDialog.show({
+			controller: 'TasksController',
+			templateUrl: 'assets/angular-app/templates/partials/post.html.erb',
+			targetEvent: ev
+		});
 	};
 
 	
@@ -70,19 +73,54 @@ function TasksController($scope, $location, Task, User, Sheet, Dialog, Toast) {
 	};
 
 
-
-	$scope.showModalLogin = function() {
-		Dialog.userLogin();
+	$scope.showModalLogin = function(ev) {
+		$mdDialog.show({
+			controller: 'DialogController',
+			templateUrl: 'assets/angular-app/templates/user-sessions/new.html.erb',
+			targetEvent: ev,
+		})
+		.then(function(answer) {
+			User.userLogin(answer)
+				.then(function() {
+					Toast.pop('Yay, you have successfully logged in');
+					$mdDialog.hide();
+				}, function(reason) {
+					Toast.pop('No way, ' + reason.errors[0])
+					$mdDialog.hide();
+				});
+		});
 		Sheet.hide();
 	};
 
-	$scope.showModalRegister = function() {
-		Dialog.userRegister();
+	$scope.showModalRegister = function(ev) {
+		$mdDialog.show({
+			controller: 'DialogController',
+			templateUrl: 'assets/angular-app/templates/user-registrations/new.html.erb',
+			targetEvent: ev,
+		})
+		.then(function(answer) {
+			User.userRegister(answer);
+			User.userLogin(answer)
+				.then(function() {
+					Toast.pop('Thank you for coming in!');
+					$mdDialog.hide();
+				}, function(reason) {
+					Toast.pop('No way, ' + reason.errors[0])
+					$mdDialog.hide();
+				});
+		});
 		Sheet.hide();
 	};
 
-
-
+	$scope.userLogOut = function() {
+		User.userLogOut()
+			.then(function() {
+				Toast.pop('See you later!');
+			}, function(reason) {
+				Toast.pop('No way, ' + reason.errors[0])
+			});
+		Sheet.hide();
+	};
 
 
 };

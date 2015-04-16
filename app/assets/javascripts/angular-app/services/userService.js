@@ -5,7 +5,7 @@ function User($auth) {
 	var User = {
 		currentUser: user.$$state.value,
 
-		userLogIn: function(user) {
+		userLogin: function(user) {
 			return $auth.submitLogin({
 				email: user.email,
 				password: user.password
