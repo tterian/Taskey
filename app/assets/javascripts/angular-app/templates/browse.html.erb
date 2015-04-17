@@ -1,29 +1,23 @@
-<md-toolbar>
+<md-toolbar class="md-tall md-toolbar">
 	<div class="md-toolbar-tools">
 		<md-button class="md-icon-button" aria-label="Menu">
 			<md-icon md-svg-icon="assets/svg/md-case.svg"></md-icon>
-		</md-button>
-		<h2>
-			<span>Taskey</span>
-		</h2>
-
-		<span flex="5"></span>
-		<md-button class="md-icon-button" aria-label="Post" ng-show="user.signedIn" ng-click="showModal($event)">
-			<span class="md-nocase">
-				<md-icon md-svg-icon="assets/svg/md-add.svg"></md-icon>
-				Post a Task
-			</span>
+			<span class="md-title">Taskey</span>
 		</md-button>
 
+
 		<span flex="5"></span>
-		<md-button class="md-icon-button" aria-label="Browse">
-			<span class="md-nocase">
-				<md-icon md-svg-icon="assets/svg/md-list.svg"></md-icon>
-				Browse Tasks
-			</span>
-		</md-button>
+		<md-input-container class="md-search" flex layout="row" md-no-float>
+				<input type="text" ng-model="searchTask" flex="80" flex-order="1">
+				<span flex="10"></span>
+				<md-icon md-svg-src="assets/svg/md-search.svg" flex="10" flex-order="2"></md-icon>
+		</md-input-container>
 
 		<span flex></span>
+		<span class="md-nocase">
+			{{user.email}}
+		</span>
+
 		<md-button aria-label="Open Settings" ng-click="showBottomSheet($event)">
 			<ng-md-icon icon="more_vert" class="md-vert-icon"></ng-md-icon>
 		</md-button>
@@ -32,96 +26,282 @@
 
 
 
-<md-content layout="row" flex layout-fill layout-padding>
-	<span flex="15"></span>
 
-	<!-- task list -->
-	<div flex="35">
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-show="user.signedIn" ng-click="showModal($event)">
+	<ng-md-icon class="add-icon" icon="add"></ng-md-icon>
+</md-button>
 
-		<md-input-container flex>
-				<md-icon md-svg-icon="assets/svg/md-search.svg" class="name"></md-icon>
-				<input type="text" ng-model="searchTask" placeholder="Search a task here">
-		</md-input-container>
 
-		<md-item class="item"	ng-repeat="task in tasks
-													| filter:searchTask
-													| orderBy:updatedAt">
 
-			<md-item-content class="user tile" layout="column">
+<md-content class="md-tasks-content" layout="column" flex layout-fill layout-padding>
+	
+	<md-tabs class="md-tasks-tabs">
 
-				<div layout="row" layout-fill ng-click="getTask(task)">
-					<div class="md-tile-left">
-						<img ng-src="assets/avatar.jpeg" class="md-face">
+		<md-tab id="tab1">
+			<md-tab-label>all tasks</md-tab-label>
+			<md-tab-body layout="row">
+
+				<md-whiteframe class="md-whiteframe-z1 md-task-list" flex="35">
+
+					<md-item class="item"	ng-repeat="task in tasks
+																| filter:searchTask
+																| orderBy:updatedAt">
+
+						<md-item-content class="user tile" layout="column">
+
+							<div layout="row" layout-fill ng-click="getTask(task)">
+								<div class="md-tile-left">
+									<img ng-src="assets/avatar.jpeg" class="md-face">
+								</div>
+
+								<div class="md-tile-content" layout="column" layout-align="center start">
+									<h3>{{task.title | limitTo:25}}{{task.title.length > 25? "..." : ""}}</h3>
+									<span am-time-ago="task.created_at"></span>
+								</div>
+
+								<div class="md-tile-right md-pricing">
+									<span>{{task.total | currency:"$":0}}</span>
+									<div>
+										<span class="{{task.status}} md-list-status">{{task.status}}</span>
+									</div>
+								</div>
+							</div>
+
+						</md-item-content>
+						<md-divider md-inset ng-if="!$last"></md-divider>
+					</md-item>
+				</md-whiteframe>
+
+
+				<!-- task details -->
+				<md-whiteframe class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
+					<div ng-hide="currentTask">
+						<h3>Click on a task to view its details</h3>
 					</div>
 
-					<div class="md-tile-content" layout="column" layout-align="center start">
-						<h3>{{task.title | limitTo:25}}{{task.title.length > 25? "..." : ""}}</h3>
-						<span am-time-ago="task.created_at"></span>
-					</div>
+					<div ng-show="currentTask" class="md-header" layout="row">
+						<div flex="75" class="md-title">
+							<h3>{{currentTask.title}}</h3>
+							<span>posted by {{currentTask.poster}}</span>
+							<span am-time-ago="currentTask.created_at"></span>
+						</div>
 
-					<div class="md-tile-right md-pricing">
-						<span>{{task.total | currency:"$":0}}</span>
-						<div>
-							<span class="{{task.status}} md-list-status">{{task.status}}</span>
+						<div flex="25" class="md-details-tags" layout="column">
+							<div class="md-details-pricing">
+								<span>{{currentTask.total | currency:"$":0}}</span>	
+							</div>
+							
+							<div ng-show="isCreator" >
+								<md-select class="md-details-status" placeholder="Admin" ng-model="currentTask.status">
+									<md-option value="open">Open</md-option>
+									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
+								</md-select>
+							</div>
+
 						</div>
 					</div>
-				</div>
 
-			</md-item-content>
-			<md-divider md-inset ng-if="!$last"></md-divider>
-		</md-item>
-	</div>
+					<div ng-show="currentTask" class="md-description" layout="row">
+						<div flex>
+							<md-card class="md-whiteframe-z1">
+								<md-card-content>
+									<span class="md-description-title">Description</span>
+									<p>{{currentTask.description}}</p>
+								</md-card-content>
+							</md-card>
+						</div>
+					</div>
+
+					<div>
+						{{isCreator}}
+						{{user.email}}
+					</div>
+					<div>
+						{{aaa}}
+					</div>
+
+				</md-whiteframe>
+			</md-tab-body>
+		</md-tab>
+	
+		<md-tab id="tab2">
+			<md-tab-label>open tasks</md-tab-label>
+			<md-tab-body layout="row">
+
+				<md-whiteframe class="md-whiteframe-z1 md-task-list" flex="35">
+
+					<md-item class="item"	ng-repeat="task in tasks
+																| filter:{status:'open'}
+																| filter:searchTask
+																| orderBy:updatedAt">
+
+						<md-item-content class="user tile" layout="column">
+
+							<div layout="row" layout-fill ng-click="getTask(task)">
+								<div class="md-tile-left">
+									<img ng-src="assets/avatar.jpeg" class="md-face">
+								</div>
+
+								<div class="md-tile-content" layout="column" layout-align="center start">
+									<h3>{{task.title | limitTo:25}}{{task.title.length > 25? "..." : ""}}</h3>
+									<span am-time-ago="task.created_at"></span>
+								</div>
+
+								<div class="md-tile-right md-pricing">
+									<span>{{task.total | currency:"$":0}}</span>
+									<div>
+										<span class="{{task.status}} md-list-status">{{task.status}}</span>
+									</div>
+								</div>
+							</div>
+
+						</md-item-content>
+						<md-divider md-inset ng-if="!$last"></md-divider>
+					</md-item>
+				</md-whiteframe>
 
 
-	<!-- task details -->
-	<div class="md-details" flex="40" layout="column">
-		<div ng-hide="currentTask">
-			<h3>Click on a task to view its details</h3>
-		</div>
+				<!-- task details -->
+				<md-whiteframe class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
+					<div ng-hide="currentTask">
+						<h3>Click on a task to view its details</h3>
+					</div>
 
-		<div ng-show="currentTask" class="md-header" layout="row">
-			<div flex="75" class="md-title">
-				<h3>{{currentTask.title}}</h3>
-				<span>posted by {{currentTask.poster}}</span>
-				<span am-time-ago="currentTask.created_at"></span>
-			</div>
+					<div ng-show="currentTask" class="md-header" layout="row">
+						<div flex="75" class="md-title">
+							<h3>{{currentTask.title}}</h3>
+							<span>posted by {{currentTask.poster}}</span>
+							<span am-time-ago="currentTask.created_at"></span>
+						</div>
 
-			<div flex="25" class="md-details-tags" layout="column">
-				<div class="md-details-pricing">
-					<span>{{currentTask.total | currency:"$":0}}</span>	
-				</div>
-				
-				<div ng-show="isCreator" >
-					<md-select class="md-details-status" placeholder="Admin" ng-model="currentTask.status">
-						<md-option value="open">Open</md-option>
-						<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
-					</md-select>
-				</div>
+						<div flex="25" class="md-details-tags" layout="column">
+							<div class="md-details-pricing">
+								<span>{{currentTask.total | currency:"$":0}}</span>	
+							</div>
+							
+							<div ng-show="isCreator" >
+								<md-select class="md-details-status" placeholder="Admin" ng-model="currentTask.status">
+									<md-option value="open">Open</md-option>
+									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
+								</md-select>
+							</div>
 
-			</div>
-		</div>
+						</div>
+					</div>
 
-		<div ng-show="currentTask" class="md-description" layout="row">
-			<div flex>
-				<md-card class="md-whiteframe-z1">
-					<md-card-content>
-						<span class="md-description-title">Description</span>
-						<p>{{currentTask.description}}</p>
-					</md-card-content>
-				</md-card>
-			</div>
-		</div>
+					<div ng-show="currentTask" class="md-description" layout="row">
+						<div flex>
+							<md-card class="md-whiteframe-z1">
+								<md-card-content>
+									<span class="md-description-title">Description</span>
+									<p>{{currentTask.description}}</p>
+								</md-card-content>
+							</md-card>
+						</div>
+					</div>
 
-		<div>
-			{{isCreator}}
-			{{user.email}}
-		</div>
-		<div>
-			{{aaa}}
-		</div>
+					<div>
+						{{isCreator}}
+						{{user.email}}
+					</div>
+					<div>
+						{{aaa}}
+					</div>
 
-	</div>
+				</md-whiteframe>
+
+			</md-tab-body>
+		</md-tab>
+
+		<md-tab id="tab3">
+			<md-tab-label>closed tasks</md-tab-label>
+			<md-tab-body layout="row">
+
+				<md-whiteframe class="md-whiteframe-z1 md-task-list" flex="35">
+
+					<md-item class="item"	ng-repeat="task in tasks
+																| filter:{status:'closed'}
+																| filter:searchTask
+																| orderBy:updatedAt">
+
+						<md-item-content class="user tile" layout="column">
+
+							<div layout="row" layout-fill ng-click="getTask(task)">
+								<div class="md-tile-left">
+									<img ng-src="assets/avatar.jpeg" class="md-face">
+								</div>
+
+								<div class="md-tile-content" layout="column" layout-align="center start">
+									<h3>{{task.title | limitTo:25}}{{task.title.length > 25? "..." : ""}}</h3>
+									<span am-time-ago="task.created_at"></span>
+								</div>
+
+								<div class="md-tile-right md-pricing">
+									<span>{{task.total | currency:"$":0}}</span>
+									<div>
+										<span class="{{task.status}} md-list-status">{{task.status}}</span>
+									</div>
+								</div>
+							</div>
+
+						</md-item-content>
+						<md-divider md-inset ng-if="!$last"></md-divider>
+					</md-item>
+				</md-whiteframe>
+
+
+				<!-- task details -->
+				<md-whiteframe class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
+					<div ng-hide="currentTask">
+						<h3>Click on a task to view its details</h3>
+					</div>
+
+					<div ng-show="currentTask" class="md-header" layout="row">
+						<div flex="75" class="md-title">
+							<h3>{{currentTask.title}}</h3>
+							<span>posted by {{currentTask.poster}}</span>
+							<span am-time-ago="currentTask.created_at"></span>
+						</div>
+
+						<div flex="25" class="md-details-tags" layout="column">
+							<div class="md-details-pricing">
+								<span>{{currentTask.total | currency:"$":0}}</span>	
+							</div>
+							
+							<div ng-show="isCreator" >
+								<md-select class="md-details-status" placeholder="Admin" ng-model="currentTask.status">
+									<md-option value="open">Open</md-option>
+									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
+								</md-select>
+							</div>
+
+						</div>
+					</div>
+
+					<div ng-show="currentTask" class="md-description" layout="row">
+						<div flex>
+							<md-card class="md-whiteframe-z1">
+								<md-card-content>
+									<span class="md-description-title">Description</span>
+									<p>{{currentTask.description}}</p>
+								</md-card-content>
+							</md-card>
+						</div>
+					</div>
+
+					<div>
+						{{isCreator}}
+						{{user.email}}
+					</div>
+					<div>
+						{{aaa}}
+					</div>
+
+				</md-whiteframe>
+
+			
+			</md-tab-body>
+		</md-tab>
+	</md-tabs>
 
 </md-content>
-
-

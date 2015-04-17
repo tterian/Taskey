@@ -45,10 +45,6 @@ function Task($resource, User) {
 			return t;
 		},
 
-		isCreator: function(task) {
-			return (currentUser.email === task.poster);
-		},
-
 		isOpen: function(task) {
 			return task.status === "open";
 		}

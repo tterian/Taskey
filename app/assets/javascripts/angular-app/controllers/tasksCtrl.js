@@ -4,8 +4,9 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 	$scope.updatedAt = '-updated_at';
 //	$scope.currentTask = '';
 	$scope.isCreator = 'false';
+	$scope.currentUser = User.currentUser;
 
-	
+
 	$scope.createTask = function(task) {
 		var extendedTask = {
 			title: task.title,
@@ -18,7 +19,7 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 		Task.createTask(task)
 			.then(function() {		
 				$scope.tasks.push(extendedTask);
-				Dialog.hide();
+				$mdDialog.hide();
 				Toast.pop('Yay, you have successfully added a task');
 			}, function(reason) {
 				Toast.pop('No way, ' + reason.errors[0]);
@@ -27,10 +28,8 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 
 
 	$scope.getTask = function(task) {
-//		$scope.currentTask = Task.getTask(task.id);
 		$scope.currentTask = task;
-		$scope.isCreator = Task.isCreator(task);
-//		console.log(Task.getTask(task.id));
+		$scope.isCreator = ($scope.user.email === task.poster);
 	};
 
 
@@ -59,7 +58,7 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 
 
 
-	$scope.showModal = function(task) {
+	$scope.showModal = function(ev) {
 		$mdDialog.show({
 			controller: 'TasksController',
 			templateUrl: 'assets/angular-app/templates/partials/post.html.erb',

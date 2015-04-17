@@ -1,0 +1,15 @@
+$dark-grey: #EEEEEE;
+
+
+body {
+	background-color: $dark-grey !important;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	top: 0;
+	height: 100% !important;
+	width: 100% !important;
+	background-color: $dark-grey !important;
+}

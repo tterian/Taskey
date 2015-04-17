@@ -1,7 +1,96 @@
 
-$grey: #E0E0E0;
-$blue: #03A9F4;
-$red: #F44336;
+$grey			: #E0E0E0;
+$blue			: #03A9F4;
+$red			: #F44336;
+$dark-grey		: #EEEEEE;
+
+.md-tasks-content {
+	background-color: $dark-grey !important;
+	padding: 0 20px 20px 20px !important;
+}
+
+
+
+.md-title {
+	text-transform: none;
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+
+md-icon {
+	margin: 0 10px 10px 0 !important;
+}
+
+.add-icon {
+	fill: white;
+}
+
+.md-nocase {
+	text-transform: none;
+	margin: 0 10px 10px 0 !important;
+	font-weight: 300;
+}
+
+
+.md-icon-button {
+	margin-top: 60px !important;
+}
+
+
+
+.md-search {
+	margin-top: 60px !important;
+	color: white !important;
+	padding-bottom: 10px !important;
+	
+	color: white;
+
+	md-icon {
+		position: relative !important;
+		padding-left: 20px !important;
+		padding-top: 5px !important;
+		float: right !important;
+		top: 0 !important;
+		left: 0 !important;
+	}
+
+	input {
+		font-weight: 300;
+		color: white !important;
+		border-color: white transparent !important;
+	}
+}
+
+
+
+.md-task-list, .md-task-details {
+	margin: 20px 20px 0 20px;
+	padding: 20px 20px 20px 20px !important;
+	background-color: white;
+}
+
+
+.md-tasks-tabs {
+	overflow: hidden !important;
+	padding: 0 10px 10px 15% !important; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .md-pricing {
@@ -10,9 +99,6 @@ $red: #F44336;
 	font-size: 1.5rem !important;
 }
 
-.md-nocase {
-	text-transform: none;
-}
 
 .md-face {
 	border-radius: 30px;

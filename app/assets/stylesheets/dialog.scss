@@ -7,10 +7,16 @@ md-dialog md-content.sticky-container .dialog-content {
 }
 
 
-.md-dialog {
+.md-dialog-user {
 	width: 25%;
 	height: auto;
 }
+
+.md-dialog-post {
+	width: 40%;
+	height: auto;
+}
+
 
 
 .md-sticky-no-effect {
