@@ -33,26 +33,15 @@ md-icon {
 
 
 .md-icon-button {
-	margin-top: 60px !important;
+	margin: 60px 74px 0 20px !important;
 }
 
 
 
 .md-search {
-	margin-top: 60px !important;
-	color: white !important;
-	padding-bottom: 10px !important;
-	
+	margin-top: 60px;
 	color: white;
 
-	md-icon {
-		position: relative !important;
-		padding-left: 20px !important;
-		padding-top: 5px !important;
-		float: right !important;
-		top: 0 !important;
-		left: 0 !important;
-	}
 
 	input {
 		font-weight: 300;
@@ -61,18 +50,31 @@ md-icon {
 	}
 }
 
+.md-search-icon {
+	position: relative;
+	padding: 10px 0 10px 12px;
+	width: 48px;
+	height: 100%;
+
+	background-color: white;
+	border-radius: 30px;
+}
+
+
 
 
 .md-task-list, .md-task-details {
-	margin: 20px 20px 0 20px;
+
+	height: 100% !important;
+	margin: 20px 10px 0 10px;
 	padding: 20px 20px 20px 20px !important;
 	background-color: white;
 }
 
 
 .md-tasks-tabs {
-	overflow: hidden !important;
-	padding: 0 10px 10px 15% !important; 
+	height: 100% !important;
+	padding: 10px 10px 10px 15% !important; 
 }
 
 
