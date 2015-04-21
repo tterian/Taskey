@@ -1,0 +1,66 @@
+$grey			: #E0E0E0;
+$blue			: #03A9F4;
+$red			: #F44336;
+$dark-grey		: #757575;
+
+
+.md-toolbar {
+	background: image-url("new.png") center center;
+	background-size: cover;
+	height: 200px !important;
+	max-height: 200px !important;
+	min-height: 200px !important;
+	width: 100%;
+}
+
+
+.md-menu {
+	margin: 120px 0 0 60px;
+	span {
+		text-transform: none;
+		font-size: 1.5rem;
+		font-weight: 400;
+	}
+}
+
+
+.md-search {
+	color: $dark-grey !important;
+	background-color: white;
+	width: 800px !important;
+	max-width: 800px !important;
+	height: 60px;
+	max-height: 60px;
+	padding: 5px 0 5px 20px;
+	margin: 130px 0 0 5%;
+
+	input {
+		color: $dark-grey !important;
+		font-weight: 300;
+		font-size: 1.5rem;
+		border: none !important;
+	}
+
+}
+
+.md-search-icon {
+	margin-top: 85px;
+	margin-left: -40px !important;
+	background: none;
+	z-index: 999;
+}
+
+
+.md-nocase {
+	text-transform: none;
+	margin: 0 10px 10px 0 !important;
+	font-weight: 300;
+}
+
+
+
+.md-add {
+	top: -25px;
+	right: 50px;
+	float: right;
+}

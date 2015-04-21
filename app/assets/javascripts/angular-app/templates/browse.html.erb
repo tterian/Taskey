@@ -1,15 +1,15 @@
-<md-toolbar class="md-tall md-toolbar">
+<md-toolbar class="md-toolbar">
 	<div class="md-toolbar-tools">
-		<md-button class="md-icon-button" aria-label="Menu">
+		<div class="md-menu">
 			<md-icon md-svg-icon="assets/svg/md-case.svg"></md-icon>
-			<span class="md-title">Taskey</span>
-		</md-button>
+			<span>Taskey</span>
+		</div>
 
-		<md-input-container class="md-search" flex layout="row" md-no-float>
-				<span flex="10"></span>
-				<input type="text" ng-model="searchTask" flex="80" flex-order="1">
-				<md-icon class="md-fab md-search-icon" md-svg-src="assets/svg/md-search.svg" flex-order="2"></md-icon>
+		<md-input-container class="md-search md-whiteframe-z1" md-no-float>
+				<input type="text" placeholder="search a task" ng-model="searchTask">
 		</md-input-container>
+
+		<md-icon class="md-search-icon" md-svg-src="assets/svg/md-search.svg"></md-icon>
 
 		<span flex></span>
 		<span class="md-nocase">
@@ -17,14 +17,14 @@
 		</span>
 
 		<md-button aria-label="Open Settings" ng-click="showBottomSheet($event)">
-			<ng-md-icon icon="more_vert" class="md-vert-icon"></ng-md-icon>
+			<ng-md-icon icon="more_vert" class="md-white-icon"></ng-md-icon>
 		</md-button>
 	</div>
 </md-toolbar>
 
 
 <md-button class="md-fab md-add" aria-label="Add" ng-show="user.signedIn" ng-click="showModal($event)">
-	<ng-md-icon class="add-icon" icon="add"></ng-md-icon>
+	<ng-md-icon class="md-white-icon" icon="add"></ng-md-icon>
 </md-button>
 
 
