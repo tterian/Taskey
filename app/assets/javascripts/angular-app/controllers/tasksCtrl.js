@@ -2,7 +2,7 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 
 	$scope.tasks = Task.all;
 	$scope.updatedAt = '-updated_at';
-//	$scope.currentTask = '';
+	$scope.currentTask = '';
 	$scope.isCreator = 'false';
 	$scope.currentUser = User.currentUser;
 
@@ -16,7 +16,7 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 			total: task.total
 		};
 
-		Task.createTask(task)
+		Task.createTask(extendedTask)
 			.then(function() {		
 				$scope.tasks.push(extendedTask);
 				$mdDialog.hide();

@@ -24,10 +24,9 @@ function Task($resource, User) {
 			{
 				title: task.title,
 				status: 'open',
-				poster: currentUser.email,
+				poster: task.poster,
 				description: task.description,
-				total: task.total,
-				user_id: currentUser.id
+				total: task.total
 			});
 			return t.$save();
 		},

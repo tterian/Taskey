@@ -5,9 +5,10 @@ $red			: #F44336;
 $dark-grey		: #EEEEEE;
 
 .md-tasks-content {
+	position: absolute;
 	background-color: $dark-grey !important;
 	padding: 0 20px 20px 20px !important;
-	top: -35px;
+	top: 140px;
 }
 
 .md-title {
