@@ -21,6 +21,37 @@ $dark-grey		: #EEEEEE;
 
 .md-task-details {
 	background-color: white;
+	padding: 20px 10px 10px 20px;
+	.md-header-details {
+		.md-title-details {
+			h3 {
+				font-size: 1.5rem;
+				font-weight: 400;
+			}
+			span {
+				font-weight: 300;	
+			}
+		}
+		.md-price-details {
+			position: relative;
+			float: right;
+			font-size: 2.5rem;
+			font-weight: 300;
+		}
+	}
+	.md-details-description {
+		h3 {
+			font-weight: 400;
+			font-size: 1.5rem;
+			margin-bottom: 10px !important; 
+		}
+		md-divider {
+			margin-right: 10px !important;
+		}
+		p {
+			font-weight: 300;
+		}
+	}
 }
 
 .md-tasks-tabs {

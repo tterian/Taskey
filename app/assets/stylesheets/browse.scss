@@ -8,73 +8,13 @@ $blue			: #03A9F4;
 $red			: #F44336;
 $dark-grey		: #EEEEEE;
 
+
+
 .md-main-content {
 	position: absolute;
 	background-color: $dark-grey !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.md-details {
-	padding: 50px 10px 0 10px !important;
-}
-
-.md-title-details {
-	span {
-		font-weight: 300;
-	}
-}
-
-
-
-.md-header {
-	margin-left: 10px;
-	padding-right: 20px;
-}
-
-
-.md-details-tags {
-	right: 10px;
-	height: 120px;
-}
-
-.md-details-pricing {
-	padding: 5px 20px 5px 20px;
-	background-color: $grey;
-	font-size: 2.5rem;
-	text-align: center;
-}
-
-.md-details-status {
-	width: 100%;
-	margin-top: 10px;
-	font-size: 1.5rem;
-	font-weight: 300;
-	padding-left: 2px;
-}
-
-
-.md-description {
-
-	margin-top: 90px;
-
-	.md-description-content {
-		font-weight: 300;
-	}
-
-}
 
 .open {
 	background-color: $blue;
@@ -91,8 +31,6 @@ $dark-grey		: #EEEEEE;
 .time-ago {
 	font-weight: 300;
 }
-
-
 
 .md-white-icon {
 	fill: white;

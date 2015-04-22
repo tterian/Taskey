@@ -92,20 +92,20 @@
 						<h3>Click on a task to view its details</h3>
 					</div>
 
-					<div ng-show="currentTask" class="md-header" layout="row">
-						<div flex="75" class="md-title-details">
+					<div ng-show="currentTask" class="md-header-details" layout="row">
+						<div flex="80" class="md-title-details">
 							<h3>{{currentTask.title}}</h3>
 							<span>posted by {{currentTask.poster}}</span>
 							<span am-time-ago="currentTask.created_at"></span>
 						</div>
 
-						<div flex="25" class="md-details-tags" layout="column">
-							<div class="md-details-pricing">
+						<div flex="20" layout="column">
+							<div class="md-price-details">
 								<span>{{currentTask.total | currency:"$":0}}</span>	
 							</div>
 							
 							<div ng-show="isCreator" >
-								<md-select class="md-details-status md-whiteframe-z1" ng-model="currentTask.status">
+								<md-select class="md-status-details" ng-model="currentTask.status">
 									<md-option value="open">Open</md-option>
 									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
 								</md-select>
@@ -114,13 +114,11 @@
 						</div>
 					</div>
 
-					<div ng-show="currentTask" class="md-description" layout="row">
+					<div ng-show="currentTask" class="md-details-description" layout="row">
 						<div flex>
-							<md-card class="md-whiteframe-z1">
-								<md-card-content>
-									<span class="md-description-content">{{currentTask.description}}</span>
-								</md-card-content>
-							</md-card>
+							<h3>Description</h3>
+							<md-divider></md-divider>
+							<p>{{currentTask.description}}</p>
 						</div>
 					</div>
 
@@ -191,20 +189,20 @@
 						<h3>Click on a task to view its details</h3>
 					</div>
 
-					<div ng-show="currentTask" class="md-header" layout="row">
-						<div flex="75" class="md-title-details">
+					<div ng-show="currentTask" class="md-header-details" layout="row">
+						<div flex="80" class="md-title-details">
 							<h3>{{currentTask.title}}</h3>
 							<span>posted by {{currentTask.poster}}</span>
 							<span am-time-ago="currentTask.created_at"></span>
 						</div>
 
-						<div flex="25" class="md-details-tags" layout="column">
-							<div class="md-details-pricing">
+						<div flex="20" layout="column">
+							<div class="md-price-details">
 								<span>{{currentTask.total | currency:"$":0}}</span>	
 							</div>
 							
 							<div ng-show="isCreator" >
-								<md-select class="md-details-status md-whiteframe-z1" ng-model="currentTask.status">
+								<md-select class="md-status-details" ng-model="currentTask.status">
 									<md-option value="open">Open</md-option>
 									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
 								</md-select>
@@ -213,13 +211,11 @@
 						</div>
 					</div>
 
-					<div ng-show="currentTask" class="md-description" layout="row">
+					<div ng-show="currentTask" class="md-details-description" layout="row">
 						<div flex>
-							<md-card class="md-whiteframe-z1">
-								<md-card-content>
-									<span class="md-description-content">{{currentTask.description}}</span>
-								</md-card-content>
-							</md-card>
+							<h3>Description</h3>
+							<md-divider></md-divider>
+							<p>{{currentTask.description}}</p>
 						</div>
 					</div>
 
@@ -290,20 +286,20 @@
 						<h3>Click on a task to view its details</h3>
 					</div>
 
-					<div ng-show="currentTask" class="md-header" layout="row">
-						<div flex="75" class="md-title-details">
+					<div ng-show="currentTask" class="md-header-details" layout="row">
+						<div flex="80" class="md-title-details">
 							<h3>{{currentTask.title}}</h3>
 							<span>posted by {{currentTask.poster}}</span>
 							<span am-time-ago="currentTask.created_at"></span>
 						</div>
 
-						<div flex="25" class="md-details-tags" layout="column">
-							<div class="md-details-pricing">
+						<div flex="20" layout="column">
+							<div class="md-price-details">
 								<span>{{currentTask.total | currency:"$":0}}</span>	
 							</div>
 							
 							<div ng-show="isCreator" >
-								<md-select class="md-details-status md-whiteframe-z1" ng-model="currentTask.status">
+								<md-select class="md-status-details" ng-model="currentTask.status">
 									<md-option value="open">Open</md-option>
 									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
 								</md-select>
@@ -312,13 +308,11 @@
 						</div>
 					</div>
 
-					<div ng-show="currentTask" class="md-description" layout="row">
+					<div ng-show="currentTask" class="md-details-description" layout="row">
 						<div flex>
-							<md-card class="md-whiteframe-z1">
-								<md-card-content>
-									<span class="md-description-content">{{currentTask.description}}</span>
-								</md-card-content>
-							</md-card>
+							<h3>Description</h3>
+							<md-divider></md-divider>
+							<p>{{currentTask.description}}</p>
 						</div>
 					</div>
 
@@ -389,20 +383,20 @@
 						<h3>Click on a task to view its details</h3>
 					</div>
 
-					<div ng-show="currentTask" class="md-header" layout="row">
-						<div flex="75" class="md-title-details">
+					<div ng-show="currentTask" class="md-header-details" layout="row">
+						<div flex="80" class="md-title-details">
 							<h3>{{currentTask.title}}</h3>
 							<span>posted by {{currentTask.poster}}</span>
 							<span am-time-ago="currentTask.created_at"></span>
 						</div>
 
-						<div flex="25" class="md-details-tags" layout="column">
-							<div class="md-details-pricing">
+						<div flex="20" layout="column">
+							<div class="md-price-details">
 								<span>{{currentTask.total | currency:"$":0}}</span>	
 							</div>
 							
 							<div ng-show="isCreator" >
-								<md-select class="md-details-status md-whiteframe-z1" ng-model="currentTask.status">
+								<md-select class="md-status-details" ng-model="currentTask.status">
 									<md-option value="open">Open</md-option>
 									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
 								</md-select>
@@ -411,15 +405,14 @@
 						</div>
 					</div>
 
-					<div ng-show="currentTask" class="md-description" layout="row">
+					<div ng-show="currentTask" class="md-details-description" layout="row">
 						<div flex>
-							<md-card class="md-whiteframe-z1">
-								<md-card-content>
-									<span class="md-description-content">{{currentTask.description}}</span>
-								</md-card-content>
-							</md-card>
+							<h3>Description</h3>
+							<md-divider></md-divider>
+							<p>{{currentTask.description}}</p>
 						</div>
 					</div>
+
 				</md-whiteframe>
 			</md-tab-body>
 
