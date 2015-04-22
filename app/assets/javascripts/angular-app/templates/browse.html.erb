@@ -1,7 +1,6 @@
 <md-toolbar class="md-toolbar">
 	<div class="md-toolbar-tools">
 		<div class="md-menu">
-			<md-icon md-svg-icon="assets/svg/md-case.svg"></md-icon>
 			<span>Taskey</span>
 		</div>
 
@@ -28,8 +27,13 @@
 </md-button>
 
 
-<md-content class="md-tasks-content" layout="column" flex layout-fill layout-padding>
+<md-content class="md-main-content" layout="column" flex layout-fill>
 	
+	<div class="md-sub-toolbar md-whiteframe-z1">
+		<span>total: {{tasks.length}} tasks</span>
+	</div>
+
+
 	<md-tabs class="md-tasks-tabs">
 		<md-tab id="tab1">
 			<md-tab-label>all tasks</md-tab-label>
@@ -62,7 +66,7 @@
 							</div>
 
 						</md-item-content>
-						<md-divider md-inset ng-if="!$last"></md-divider>
+						<md-divider ng-if="!$last"></md-divider>
 					</md-item>
 				</md-whiteframe>
 

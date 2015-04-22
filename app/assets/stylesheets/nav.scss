@@ -2,6 +2,7 @@ $grey			: #E0E0E0;
 $blue			: #03A9F4;
 $red			: #F44336;
 $dark-grey		: #757575;
+$meh-blue 		: #479dc4;
 
 
 .md-toolbar {
@@ -63,4 +64,19 @@ $dark-grey		: #757575;
 	top: -25px;
 	right: 50px;
 	float: right;
+}
+
+
+.md-sub-toolbar {
+	position: relative !important;
+	height: 50px !important;
+	width: 100% !important;
+	background: $meh-blue !important;
+	z-index: 0 !important;
+	span {
+		float: right;
+		margin-right: 20%;
+		margin-top: 15px; 
+		color: white;
+	}
 }

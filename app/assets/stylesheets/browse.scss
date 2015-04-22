@@ -3,16 +3,10 @@ $blue			: #03A9F4;
 $red			: #F44336;
 $dark-grey		: #EEEEEE;
 
-.md-tasks-content {
+.md-main-content {
 	position: absolute;
 	background-color: $dark-grey !important;
-	padding: 0 20px 20px 20px !important;
-	top: 220px;
 }
-
-
-
-
 
 
 
@@ -26,8 +20,14 @@ $dark-grey		: #EEEEEE;
 
 
 .md-tasks-tabs {
+	position: relative;
+	top: -49px;
 	height: 100% !important;
-	padding: 0 10px 10px 15% !important; 
+	padding: 0 10px 10px 15% !important;
+	md-tab-label {
+		color: white !important;
+		font-weight: 300 !important;
+	}
 }
 
 
