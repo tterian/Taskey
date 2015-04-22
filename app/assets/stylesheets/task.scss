@@ -1,0 +1,67 @@
+/* -------------------------------- 
+Task - task item related styling
+-------------------------------- */
+
+$grey			: #E0E0E0;
+$blue			: #03A9F4;
+$red			: #F44336;
+$dark-grey		: #EEEEEE;
+
+
+.md-item-content {
+	background-color: white;
+	margin-bottom: 20px;	
+}
+
+
+.md-task-list, .md-task-details {
+	height: 100% !important;
+	margin: 20px 10px 0 10px;
+}
+
+.md-task-details {
+	background-color: white;
+}
+
+.md-tasks-tabs {
+	position: relative;
+	top: -49px;
+	height: 100% !important;
+	padding: 0 10px 10px 15% !important;
+	md-tab-label {
+		color: white !important;
+		font-weight: 300 !important;
+	}
+}
+
+
+
+
+.md-pricing {
+	margin: 20px 10px 0 0;
+	font-weight: 300;
+	font-size: 2.5rem;
+}
+
+
+.md-face {
+	border-radius: 30px;
+	border: 1px solid #ddd;
+	width: 48px;
+	margin: 16px;
+}
+
+
+
+
+.md-instant-bar {
+	height: 35px !important;
+	background-color: #F5F5F5;
+	border-top: 1px solid #E0E0E0;
+}
+
+.md-comments, .md-bids, .md-status {
+	text-align: center;
+	margin-top: 6px;
+	font-weight: 300;
+}

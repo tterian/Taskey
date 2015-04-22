@@ -39,15 +39,15 @@
 			<md-tab-label>all tasks</md-tab-label>
 			<md-tab-body layout="row">
 
-				<md-whiteframe class="md-whiteframe-z1 md-task-list" flex="35">
+				<md-whiteframe class="md-task-list" flex="35">
 
-					<md-item class="item"	ng-repeat="task in tasks
-																| filter:searchTask
-																| orderBy:updatedAt">
+					<md-item ng-repeat="task in tasks
+											| filter:searchTask
+											| orderBy:updatedAt">
 
-						<md-item-content class="user tile" layout="column">
+						<md-item-content class="tile md-item-content md-whiteframe-z1" layout="column" ng-click="getTask(task)">
 
-							<div layout="row" layout-fill ng-click="getTask(task)">
+							<div layout="row" layout-fill>
 								<div class="md-tile-left">
 									<img ng-src="assets/avatar.jpeg" class="md-face">
 								</div>
@@ -59,10 +59,25 @@
 
 								<div class="md-tile-right md-pricing">
 									<span>{{task.total | currency:"$":0}}</span>
-									<div class="md-list-status">
-										<span class="{{task.status}}">{{task.status}}</span>
-									</div>
 								</div>
+							</div>
+
+							<div class="md-instant-bar" layout="row" layout-fill>
+								<div class="md-comments" flex>
+									<md-icon md-svg-icon="assets/svg/md-comment.svg"></md-icon>
+									<span>comments: 0</span>
+								</div>
+
+								<div class="md-bids" flex>
+									<md-icon md-svg-icon="assets/svg/md-bid.svg"></md-icon>
+									<span>bids: 0</span>
+								</div>
+
+								<div class="md-status" flex>
+									<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
+									<span>status: {{task.status}}</span>
+								</div>
+								
 							</div>
 
 						</md-item-content>
@@ -122,16 +137,16 @@
 			<md-tab-label>open tasks</md-tab-label>
 			<md-tab-body layout="row">
 
-				<md-whiteframe class="md-whiteframe-z1 md-task-list" flex="35">
+				<md-whiteframe class="md-task-list" flex="35">
 
 					<md-item class="item"	ng-repeat="task in tasks
 																| filter:{status:'open'}
 																| filter:searchTask
 																| orderBy:updatedAt">
 
-						<md-item-content class="user tile" layout="column">
+						<md-item-content class="tile md-item-content md-whiteframe-z1" layout="column" ng-click="getTask(task)">
 
-							<div layout="row" layout-fill ng-click="getTask(task)">
+							<div layout="row" layout-fill>
 								<div class="md-tile-left">
 									<img ng-src="assets/avatar.jpeg" class="md-face">
 								</div>
@@ -143,10 +158,25 @@
 
 								<div class="md-tile-right md-pricing">
 									<span>{{task.total | currency:"$":0}}</span>
-									<div class="md-list-status">
-										<span class="{{task.status}}">{{task.status}}</span>
-									</div>
 								</div>
+							</div>
+
+							<div class="md-instant-bar" layout="row" layout-fill>
+								<div class="md-comments" flex>
+									<md-icon md-svg-icon="assets/svg/md-comment.svg"></md-icon>
+									<span>comments: 0</span>
+								</div>
+
+								<div class="md-bids" flex>
+									<md-icon md-svg-icon="assets/svg/md-bid.svg"></md-icon>
+									<span>bids: 0</span>
+								</div>
+
+								<div class="md-status" flex>
+									<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
+									<span>status: {{task.status}}</span>
+								</div>
+								
 							</div>
 
 						</md-item-content>
@@ -207,16 +237,16 @@
 			<md-tab-label>closed tasks</md-tab-label>
 			<md-tab-body layout="row">
 
-				<md-whiteframe class="md-whiteframe-z1 md-task-list" flex="35">
+				<md-whiteframe class="md-task-list" flex="35">
 
-					<md-item class="item"	ng-repeat="task in tasks
-																| filter:{status:'closed'}
-																| filter:searchTask
-																| orderBy:updatedAt">
+					<md-item ng-repeat="task in tasks
+											| filter:{status:'closed'}
+											| filter:searchTask
+											| orderBy:updatedAt">
 
-						<md-item-content class="user tile" layout="column">
+						<md-item-content class="tile md-item-content md-whiteframe-z1" layout="column" ng-click="getTask(task)">
 
-							<div layout="row" layout-fill ng-click="getTask(task)">
+							<div layout="row" layout-fill>
 								<div class="md-tile-left">
 									<img ng-src="assets/avatar.jpeg" class="md-face">
 								</div>
@@ -228,12 +258,26 @@
 
 								<div class="md-tile-right md-pricing">
 									<span>{{task.total | currency:"$":0}}</span>
-									<div class="md-list-status">
-										<span class="{{task.status}}">{{task.status}}</span>
-									</div>
 								</div>
 							</div>
 
+							<div class="md-instant-bar" layout="row" layout-fill>
+								<div class="md-comments" flex>
+									<md-icon md-svg-icon="assets/svg/md-comment.svg"></md-icon>
+									<span>comments: 0</span>
+								</div>
+
+								<div class="md-bids" flex>
+									<md-icon md-svg-icon="assets/svg/md-bid.svg"></md-icon>
+									<span>bids: 0</span>
+								</div>
+
+								<div class="md-status" flex>
+									<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
+									<span>status: {{task.status}}</span>
+								</div>
+								
+							</div>
 						</md-item-content>
 						<md-divider md-inset ng-if="!$last"></md-divider>
 					</md-item>
@@ -291,16 +335,16 @@
 			<md-tab-label>my tasks</md-tab-label>
 			<md-tab-body layout="row">
 
-				<md-whiteframe class="md-whiteframe-z1 md-task-list" flex="35">
+				<md-whiteframe class="md-task-list" flex="35">
 
 					<md-item class="item"	ng-repeat="task in tasks
 																| filter:{poster:user.email}
 																| filter:searchTask
 																| orderBy:updatedAt">
 
-						<md-item-content class="user tile" layout="column">
+						<md-item-content class="tile md-item-content md-whiteframe-z1" layout="column" ng-click="getTask(task)">
 
-							<div layout="row" layout-fill ng-click="getTask(task)">
+							<div layout="row" layout-fill>
 								<div class="md-tile-left">
 									<img ng-src="assets/avatar.jpeg" class="md-face">
 								</div>
@@ -312,10 +356,25 @@
 
 								<div class="md-tile-right md-pricing">
 									<span>{{task.total | currency:"$":0}}</span>
-									<div class="md-list-status">
-										<span class="{{task.status}}">{{task.status}}</span>
-									</div>
 								</div>
+							</div>
+
+							<div class="md-instant-bar" layout="row" layout-fill>
+								<div class="md-comments" flex>
+									<md-icon md-svg-icon="assets/svg/md-comment.svg"></md-icon>
+									<span>comments: 0</span>
+								</div>
+
+								<div class="md-bids" flex>
+									<md-icon md-svg-icon="assets/svg/md-bid.svg"></md-icon>
+									<span>bids: 0</span>
+								</div>
+
+								<div class="md-status" flex>
+									<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
+									<span>status: {{task.status}}</span>
+								</div>
+								
 							</div>
 
 						</md-item-content>

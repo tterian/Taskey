@@ -1,5 +1,8 @@
 <md-dialog aria-label="signin User" class="md-dialog-user">
+	<h3>Log in</h3>
+	<md-divider></md-divider>
 	<md-content class="sticky-container">
+
 
 		<div class="dialog-content">	
 			<form name="userForm">
@@ -7,14 +10,14 @@
 					<md-icon md-svg-icon="assets/svg/md-mail.svg" class="name"></md-icon>
 					<input 	type="email"
 							ng-model="user.email"
-							placeholder="Enter email"
+							placeholder="email"
 							required>
 				</md-input-container>
 				<md-input-container flex>
 					<md-icon md-svg-icon="assets/svg/md-lock.svg" class="name"></md-icon>
 					<input 	type="password"
 							ng-model="user.password"
-							placeholder="Enter pass"
+							placeholder="password"
 							required>
 				</md-input-container>
 			</form>
