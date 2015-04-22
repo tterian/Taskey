@@ -1,6 +1,8 @@
 <md-dialog aria-label="post Task" class="md-dialog-post">
+	<h3>Post a Task</h3>
+	<md-divider></md-divider>
+
 	<md-content class="sticky-container">
-		<md-subheader class="md-sticky-no-effect">Post a task, its fun!</md-subheader>
 		
 		<div class="dialog-content">
 			<form name="userForm">
@@ -29,10 +31,11 @@
 			</form>
 		</div>
 	</md-content>
-	
+
 	<div class="md-actions" layout="row">
-		<md-button ng-click="createTask(task)" class="md-raised md-primary md-add">
+		<md-button class="md-raised md-primary md-add-button" ng-click="createTask(task)">
 			Post
 		</md-button>
 	</div>
+
 </md-dialog>

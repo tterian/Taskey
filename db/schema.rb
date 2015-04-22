@@ -17,11 +17,12 @@ ActiveRecord::Schema.define(version: 20150406063849) do
     t.string   "title"
     t.string   "status"
     t.string   "poster"
+    t.string   "poster_avatar"
     t.text     "description"
     t.integer  "total"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree

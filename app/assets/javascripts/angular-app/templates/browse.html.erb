@@ -49,7 +49,7 @@
 
 							<div layout="row" layout-fill>
 								<div class="md-tile-left">
-									<img ng-src="assets/avatar.jpeg" class="md-face">
+									<img ng-src="assets/avatars/{{task.poster_avatar}}.png" class="md-face">
 								</div>
 
 								<div class="md-tile-content" layout="column" layout-align="center start">
@@ -105,6 +105,7 @@
 							</div>
 							
 							<div ng-show="isCreator" >
+								<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
 								<md-select class="md-status-details" ng-model="currentTask.status">
 									<md-option value="open">Open</md-option>
 									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
@@ -202,6 +203,7 @@
 							</div>
 							
 							<div ng-show="isCreator" >
+								<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
 								<md-select class="md-status-details" ng-model="currentTask.status">
 									<md-option value="open">Open</md-option>
 									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
@@ -299,6 +301,7 @@
 							</div>
 							
 							<div ng-show="isCreator" >
+								<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
 								<md-select class="md-status-details" ng-model="currentTask.status">
 									<md-option value="open">Open</md-option>
 									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
@@ -396,6 +399,7 @@
 							</div>
 							
 							<div ng-show="isCreator" >
+								<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
 								<md-select class="md-status-details" ng-model="currentTask.status">
 									<md-option value="open">Open</md-option>
 									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>

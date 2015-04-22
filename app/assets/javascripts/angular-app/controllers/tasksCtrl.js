@@ -6,6 +6,8 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 	$scope.isCreator = 'false';
 	$scope.currentUser = User.currentUser;
 
+	var id = User.currentUser.id % 11 + 1;
+	var avatars = ["actor", "agent", "anonymous", "astronaut", "basketball", "bomberman", "dead", "engineering1", "engineering2", "maid", "matrix"];
 
 	$scope.createTask = function(task) {
 		var extendedTask = {
@@ -13,6 +15,7 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 			status: 'open',
 			description: task.description,
 			poster: $scope.currentUser.email,
+			poster_avatar: avatars[id],
 			total: task.total
 		};
 

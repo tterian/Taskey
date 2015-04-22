@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :title
       t.string :status
       t.string :poster
+      t.string :poster_avatar
       t.text :description
       t.integer :total
       t.references :user, index: true

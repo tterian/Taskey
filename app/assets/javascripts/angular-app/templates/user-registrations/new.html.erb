@@ -10,7 +10,6 @@
 					<md-icon md-svg-icon="assets/svg/md-mail.svg" class="name"></md-icon>
 					<input 	type="email"
 							ng-model="user.email"
-							placeholder="Enter email"
 							required>
 				</md-input-container>
 
@@ -18,7 +17,6 @@
 					<md-icon md-svg-icon="assets/svg/md-lock.svg" class="name"></md-icon>
 					<input 	type="password"
 							ng-model="user.password"
-							placeholder="Enter pass"
 							required>
 				</md-input-container>
 
@@ -26,7 +24,6 @@
 					<md-icon md-svg-icon="assets/svg/md-lock.svg" class="name"></md-icon>
 					<input 	type="password"
 							ng-model="user.password_confirmation"
-							placeholder="Enter pass"
 							required>
 				</md-input-container>
 			</form>
@@ -34,7 +31,7 @@
 	</md-content>
 	
 	<div class="md-actions" layout="row">
-		<md-button class="md-raised md-primary" ng-click="answer(user)">
+		<md-button class="md-raised md-primary md-register-button" ng-click="answer(user)">
 			Register
 		</md-button>
 	</div>

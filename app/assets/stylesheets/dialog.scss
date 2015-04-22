@@ -2,6 +2,11 @@
 Dialogs
 -------------------------------- */
 
+$grey			: #E0E0E0;
+$blue			: #03A9F4;
+$red			: #F44336;
+$dark-grey		: #EEEEEE;
+$meh-blue 		: #479dc4;
 
 
 md-dialog md-content.sticky-container {
@@ -25,23 +30,18 @@ md-dialog md-content.sticky-container .dialog-content {
 .md-dialog-post {
 	width: 40%;
 	height: auto;
+	h3 {
+		text-align: center;
+		font-weight: 300;
+	}
 }
 
 
-
-.md-sticky-no-effect {
-	width: 100% !important;
-	background: #F44336 !important;
-	text-align: center !important;
-	color: white !important;
-	font-size: 1.5rem !important;
+.md-add-button {
+	background: $red !important;
 }
 
-.md-add, .md-edit {
-	background: #F44336 !important;
-}
 
-.md-placeholder {
-	margin-left: 60px;
-	margin-top: -18px;
+.md-login-button, .md-register-button {
+	background: $meh-blue !important;
 }

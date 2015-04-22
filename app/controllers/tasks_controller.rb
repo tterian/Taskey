@@ -39,6 +39,7 @@ class TasksController < ApplicationController
 			:title,
 			:status,
 			:poster,
+			:poster_avatar,
 			:description,
 			:total,
 			:user_id

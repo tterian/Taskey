@@ -10,14 +10,12 @@
 					<md-icon md-svg-icon="assets/svg/md-mail.svg" class="name"></md-icon>
 					<input 	type="email"
 							ng-model="user.email"
-							placeholder="email"
 							required>
 				</md-input-container>
 				<md-input-container flex>
 					<md-icon md-svg-icon="assets/svg/md-lock.svg" class="name"></md-icon>
 					<input 	type="password"
 							ng-model="user.password"
-							placeholder="password"
 							required>
 				</md-input-container>
 			</form>
@@ -25,7 +23,7 @@
 	</md-content>
 	
 	<div class="md-actions" layout="row">
-		<md-button class="md-raised md-primary" ng-click="answer(user)">
+		<md-button class="md-raised md-primary md-login-button" ng-click="answer(user)">
 			Log in
 		</md-button>
 	</div>

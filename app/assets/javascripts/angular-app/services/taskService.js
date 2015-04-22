@@ -25,6 +25,7 @@ function Task($resource, User) {
 				title: task.title,
 				status: 'open',
 				poster: task.poster,
+				poster_avatar: task.poster_avatar,
 				description: task.description,
 				total: task.total
 			});
