@@ -7,6 +7,7 @@ $grey			: #E0E0E0;
 $blue			: #03A9F4;
 $red			: #F44336;
 $dark-grey		: #EEEEEE;
+$meh-blue 		: #479DC4;
 
 
 
@@ -36,6 +37,16 @@ $dark-grey		: #EEEEEE;
 	fill: white;
 }
 
+small {
+	color: rgba(0,0,0,0.54) !important;
+}
 
 
+.red-button {
+	color: $red !important;
+}
 
+
+.blue-button {
+	color: $meh-blue !important;
+}

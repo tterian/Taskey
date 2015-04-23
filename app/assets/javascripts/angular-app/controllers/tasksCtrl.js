@@ -45,29 +45,27 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	$scope.showModal = function(ev) {
+	$scope.showPostModal = function(ev) {
 		$mdDialog.show({
 			controller: 'TasksController',
 			templateUrl: 'assets/angular-app/templates/partials/post.html.erb',
 			targetEvent: ev
 		});
 	};
+
+	$scope.showEditModal = function(ev, task) {
+		$mdDialog.show({
+			controller: 'EditDialogController',
+			templateUrl: 'assets/angular-app/templates/partials/edit.html.erb',
+			targetEvent: ev,
+			locals: {
+				currentTask: task
+			}
+		}).then(function(answer) {
+			Task.editTask(answer);
+		});
+	};	
+
 
 	
 	$scope.showBottomSheet = function() {
@@ -103,5 +101,6 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 		Sheet.hide();
 	};
 
-
 };
+
+

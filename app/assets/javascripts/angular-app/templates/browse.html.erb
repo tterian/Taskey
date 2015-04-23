@@ -22,7 +22,7 @@
 </md-toolbar>
 
 
-<md-button class="md-fab md-add" aria-label="Add" ng-show="user.signedIn" ng-click="showModal($event)">
+<md-button class="md-fab md-add" aria-label="Add" ng-show="user.signedIn" ng-click="showPostModal($event)">
 	<ng-md-icon class="md-white-icon" icon="add"></ng-md-icon>
 </md-button>
 
@@ -93,9 +93,9 @@
 					</div>
 
 					<div ng-show="currentTask" class="md-header-details" layout="row">
-						<div flex="80" class="md-title-details">
+						<div class="md-tile-content" flex="80">
 							<h3>{{currentTask.title}}</h3>
-							<span>posted by {{currentTask.poster}}</span>
+							<span class="time-ago">posted by {{currentTask.poster}}</span>
 							<span am-time-ago="currentTask.created_at"></span>
 						</div>
 
@@ -103,23 +103,17 @@
 							<div class="md-price-details">
 								<span>{{currentTask.total | currency:"$":0}}</span>	
 							</div>
-							
-							<div ng-show="isCreator" >
-								<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
-								<md-select class="md-status-details" ng-model="currentTask.status">
-									<md-option value="open">Open</md-option>
-									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
-								</md-select>
-							</div>
-
 						</div>
 					</div>
 
-					<div ng-show="currentTask" class="md-details-description" layout="row">
+					<div ng-show="currentTask" class="md-details-description" layout="column">
 						<div flex>
 							<h3>Description</h3>
 							<md-divider></md-divider>
 							<p>{{currentTask.description}}</p>
+						</div>
+						<div ng-show="isCreator" >
+							<md-button class="md-primary red-button" ng-show="isCreator" ng-click="showEditModal($event, currentTask)">Update the task</md-button>
 						</div>
 					</div>
 
@@ -191,9 +185,9 @@
 					</div>
 
 					<div ng-show="currentTask" class="md-header-details" layout="row">
-						<div flex="80" class="md-title-details">
+						<div class="md-tile-content" flex="80">
 							<h3>{{currentTask.title}}</h3>
-							<span>posted by {{currentTask.poster}}</span>
+							<span class="time-ago">posted by {{currentTask.poster}}</span>
 							<span am-time-ago="currentTask.created_at"></span>
 						</div>
 
@@ -289,9 +283,9 @@
 					</div>
 
 					<div ng-show="currentTask" class="md-header-details" layout="row">
-						<div flex="80" class="md-title-details">
+						<div class="md-tile-content" flex="80">
 							<h3>{{currentTask.title}}</h3>
-							<span>posted by {{currentTask.poster}}</span>
+							<span class="time-ago">posted by {{currentTask.poster}}</span>
 							<span am-time-ago="currentTask.created_at"></span>
 						</div>
 
@@ -387,9 +381,9 @@
 					</div>
 
 					<div ng-show="currentTask" class="md-header-details" layout="row">
-						<div flex="80" class="md-title-details">
+						<div class="md-tile-content" flex="80">
 							<h3>{{currentTask.title}}</h3>
-							<span>posted by {{currentTask.poster}}</span>
+							<span class="time-ago">posted by {{currentTask.poster}}</span>
 							<span am-time-ago="currentTask.created_at"></span>
 						</div>
 

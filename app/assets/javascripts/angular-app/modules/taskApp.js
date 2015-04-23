@@ -19,6 +19,7 @@ angular
 	.factory('Sheet', Sheet)
 	.factory('Toast', Toast)
 	.controller('TasksController', TasksController)
+	.controller('EditDialogController', EditDialogController)
 	.controller('UsersController', UsersController);
 
 //Config routes

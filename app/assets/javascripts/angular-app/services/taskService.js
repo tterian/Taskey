@@ -32,10 +32,9 @@ function Task($resource, User) {
 			return t.$save();
 		},
 
-//		editTask: function(task) {
-//			var t = tasks.get({},{'taskId': 1});
-//			return t.$update({title: task.title, description: task.description, total: task.total});
-//		},
+		editTask: function(task) {
+			return task.$update();
+		},
 
 		cancelTask: function(taskId) {
 			var t = tasks.get({'taskId': taskId}, function(task) {

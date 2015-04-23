@@ -13,7 +13,6 @@ $dark-grey		: #EEEEEE;
 	margin-bottom: 20px;	
 }
 
-
 .md-task-list, .md-task-details {
 	height: 100% !important;
 	margin: 20px 10px 0 10px;
@@ -23,7 +22,8 @@ $dark-grey		: #EEEEEE;
 	background-color: white;
 	padding: 20px 10px 10px 20px;
 	.md-header-details {
-		.md-title-details {
+		.md-tile-content {
+			padding: 0 !important;
 			h3 {
 				font-size: 1.5rem;
 				font-weight: 400;
@@ -64,8 +64,6 @@ $dark-grey		: #EEEEEE;
 		font-weight: 300 !important;
 	}
 }
-
-
 
 
 .md-pricing {

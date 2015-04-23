@@ -1,38 +1,58 @@
-<md-dialog aria-label="post Task" class="md-dialog">
-	<md-content class="sticky-container">
-		<md-subheader class="md-sticky-no-effect">Edit a task, its kinda fun!</md-subheader>
+<md-dialog aria-label="post Task" class="md-dialog-post">
+	<h3>Update a Task </h3>
+	<md-divider></md-divider>
 
+	<md-content class="sticky-container">
+		
 		<div class="dialog-content">
 			<form name="userForm">
-				<md-input-container flex>
-					<label>Title</label>
-					<input  	type="text"
-								ng-model="currentTask.title"
-								placeholder="What you need to be done?"
-								required>
-				</md-input-container>
+				<div layout="row">
+					<div flex="50">
+						<md-input-container flex>
+							<label>Title</label>
+							<input 		type="text"
+										ng-model="currentTask.title"
+										required>
+						</md-input-container>
+					</div>
+					<div flex="50">
+						<md-input-container flex>
+							<label>Total</label>
+							<input 		type="number"
+										ng-model="currentTask.total"
+										required>
+						</md-input-container>
+					</div>
+				</div>
+
 				<md-input-container flex>
 					<label>Description</label>
 					<textarea 	ng-model="currentTask.description"
-								placeholder="Describe your task here"
 								md-maxlength="150"
 								required>
 					</textarea>
 				</md-input-container>
-				<md-input-container flex>
-					<label>Total</label>
-					<input 		type="number"
-								ng-model="currentTask.total"
-								placeholder="How much are you willing to pay?"
-								required>
-				</md-input-container>
+
+				<div layout="row">
+					<div flex="20">
+						<md-input-container flex>
+							<small>Status</small>
+							<md-select ng-model="currentTask.status">
+								<md-option value="open">Open</md-option>
+								<md-option value="closed">Close</md-option>
+							</md-select>
+						</md-input-container>
+					</div>
+				</div>
+
 			</form>
 		</div>
 	</md-content>
-	
+
 	<div class="md-actions" layout="row">
-		<md-button ng-click="answer(currentTask)" class="md-raised md-primary md-edit">
-			Edit
+		<md-button class="md-primary red-button" ng-click="answer(currentTask)">
+			Update
 		</md-button>
 	</div>
+
 </md-dialog>
