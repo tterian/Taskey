@@ -77,39 +77,18 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 
 	$scope.showModalLogin = function(ev) {
 		$mdDialog.show({
-			controller: 'DialogController',
+			controller: 'UsersController',
 			templateUrl: 'assets/angular-app/templates/user-sessions/new.html.erb',
 			targetEvent: ev,
-		})
-		.then(function(answer) {
-			User.userLogin(answer)
-				.then(function() {
-					Toast.pop('Yay, you have successfully logged in');
-					$mdDialog.hide();
-				}, function(reason) {
-					Toast.pop('No way, ' + reason.errors[0])
-					$mdDialog.hide();
-				});
 		});
 		Sheet.hide();
 	};
 
 	$scope.showModalRegister = function(ev) {
 		$mdDialog.show({
-			controller: 'DialogController',
+			controller: 'UsersController',
 			templateUrl: 'assets/angular-app/templates/user-registrations/new.html.erb',
 			targetEvent: ev,
-		})
-		.then(function(answer) {
-			User.userRegister(answer);
-			User.userLogin(answer)
-				.then(function() {
-					Toast.pop('Thank you for coming in!');
-					$mdDialog.hide();
-				}, function(reason) {
-					Toast.pop('No way, ' + reason.errors[0])
-					$mdDialog.hide();
-				});
 		});
 		Sheet.hide();
 	};

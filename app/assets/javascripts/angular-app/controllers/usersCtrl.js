@@ -14,6 +14,7 @@ function UsersController($scope, $location, $mdDialog, User, Sheet, Toast) {
 	$scope.userRegister = function(user) {
 		User.userRegister(user)
 			.then(function() {
+				User.userLogin(user);
 				Toast.pop('Hey, welcome!');
 				$mdDialog.hide();
 			}, function(reason) {
@@ -21,6 +22,5 @@ function UsersController($scope, $location, $mdDialog, User, Sheet, Toast) {
 				$mdDialog.hide();
 			});
 	};
-
 
 };

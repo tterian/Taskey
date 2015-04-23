@@ -19,8 +19,7 @@ angular
 	.factory('Sheet', Sheet)
 	.factory('Toast', Toast)
 	.controller('TasksController', TasksController)
-	.controller('UsersController', UsersController)
-	.controller('DialogController', DialogController);
+	.controller('UsersController', UsersController);
 
 //Config routes
 function config($routeProvider) {
