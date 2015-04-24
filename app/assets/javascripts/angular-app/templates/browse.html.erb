@@ -46,7 +46,6 @@
 											| orderBy:updatedAt">
 
 						<md-item-content class="tile md-item-content md-whiteframe-z1" layout="column" ng-click="getTask(task)">
-
 							<div layout="row" layout-fill>
 								<div class="md-tile-left">
 									<img ng-src="assets/avatars/{{task.poster_avatar}}.png" class="md-face">
@@ -87,12 +86,8 @@
 
 
 				<!-- task details -->
-				<md-whiteframe class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
-					<div ng-hide="currentTask">
-						<h3>Click on a task to view its details</h3>
-					</div>
-
-					<div ng-show="currentTask" class="md-header-details" layout="row">
+				<md-whiteframe ng-show="currentTask" class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
+					<div class="md-header-details" layout="row">
 						<div class="md-tile-content" flex="80">
 							<h3>{{currentTask.title}}</h3>
 							<span class="time-ago">posted by {{currentTask.poster}}</span>
@@ -106,15 +101,16 @@
 						</div>
 					</div>
 
-					<div ng-show="currentTask" class="md-details-description" layout="column">
+					<div class="md-details-description" layout="column">
 						<div flex>
 							<h3>Description</h3>
 							<md-divider></md-divider>
 							<p>{{currentTask.description}}</p>
 						</div>
-						<div ng-show="isCreator" >
-							<md-button class="md-primary red-button" ng-show="isCreator" ng-click="showEditModal($event, currentTask)">Update the task</md-button>
-						</div>
+					</div>
+
+					<div class="md-details-update" ng-show="isCreator && user.signedIn">
+						<md-button class="md-primary red-button" ng-click="showEditModal($event, currentTask)">Update the task</md-button>
 					</div>
 
 				</md-whiteframe>
@@ -179,12 +175,8 @@
 
 
 				<!-- task details -->
-				<md-whiteframe class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
-					<div ng-hide="currentTask">
-						<h3>Click on a task to view its details</h3>
-					</div>
-
-					<div ng-show="currentTask" class="md-header-details" layout="row">
+				<md-whiteframe ng-show="currentTask" class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
+					<div class="md-header-details" layout="row">
 						<div class="md-tile-content" flex="80">
 							<h3>{{currentTask.title}}</h3>
 							<span class="time-ago">posted by {{currentTask.poster}}</span>
@@ -195,24 +187,19 @@
 							<div class="md-price-details">
 								<span>{{currentTask.total | currency:"$":0}}</span>	
 							</div>
-							
-							<div ng-show="isCreator" >
-								<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
-								<md-select class="md-status-details" ng-model="currentTask.status">
-									<md-option value="open">Open</md-option>
-									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
-								</md-select>
-							</div>
-
 						</div>
 					</div>
 
-					<div ng-show="currentTask" class="md-details-description" layout="row">
+					<div class="md-details-description" layout="column">
 						<div flex>
 							<h3>Description</h3>
 							<md-divider></md-divider>
 							<p>{{currentTask.description}}</p>
 						</div>
+					</div>
+
+					<div class="md-details-update" ng-show="isCreator && user.signedIn">
+						<md-button class="md-primary red-button" ng-click="showEditModal($event, currentTask)">Update the task</md-button>
 					</div>
 
 				</md-whiteframe>
@@ -277,12 +264,8 @@
 
 
 				<!-- task details -->
-				<md-whiteframe class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
-					<div ng-hide="currentTask">
-						<h3>Click on a task to view its details</h3>
-					</div>
-
-					<div ng-show="currentTask" class="md-header-details" layout="row">
+				<md-whiteframe ng-show="currentTask" class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
+					<div class="md-header-details" layout="row">
 						<div class="md-tile-content" flex="80">
 							<h3>{{currentTask.title}}</h3>
 							<span class="time-ago">posted by {{currentTask.poster}}</span>
@@ -293,24 +276,19 @@
 							<div class="md-price-details">
 								<span>{{currentTask.total | currency:"$":0}}</span>	
 							</div>
-							
-							<div ng-show="isCreator" >
-								<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
-								<md-select class="md-status-details" ng-model="currentTask.status">
-									<md-option value="open">Open</md-option>
-									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
-								</md-select>
-							</div>
-
 						</div>
 					</div>
 
-					<div ng-show="currentTask" class="md-details-description" layout="row">
+					<div class="md-details-description" layout="column">
 						<div flex>
 							<h3>Description</h3>
 							<md-divider></md-divider>
 							<p>{{currentTask.description}}</p>
 						</div>
+					</div>
+
+					<div class="md-details-update" ng-show="isCreator && user.signedIn">
+						<md-button class="md-primary red-button" ng-click="showEditModal($event, currentTask)">Update the task</md-button>
 					</div>
 
 				</md-whiteframe>
@@ -375,12 +353,8 @@
 
 
 				<!-- task details -->
-				<md-whiteframe class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
-					<div ng-hide="currentTask">
-						<h3>Click on a task to view its details</h3>
-					</div>
-
-					<div ng-show="currentTask" class="md-header-details" layout="row">
+				<md-whiteframe ng-show="currentTask" class="md-whiteframe-z1 md-task-details" flex="40" layout="column">
+					<div class="md-header-details" layout="row">
 						<div class="md-tile-content" flex="80">
 							<h3>{{currentTask.title}}</h3>
 							<span class="time-ago">posted by {{currentTask.poster}}</span>
@@ -391,24 +365,19 @@
 							<div class="md-price-details">
 								<span>{{currentTask.total | currency:"$":0}}</span>	
 							</div>
-							
-							<div ng-show="isCreator" >
-								<md-icon md-svg-icon="assets/svg/md-info.svg"></md-icon>
-								<md-select class="md-status-details" ng-model="currentTask.status">
-									<md-option value="open">Open</md-option>
-									<md-option value="closed" ng-click="cancelTask(currentTask.id)">Close</md-option>
-								</md-select>
-							</div>
-
 						</div>
 					</div>
 
-					<div ng-show="currentTask" class="md-details-description" layout="row">
+					<div class="md-details-description" layout="column">
 						<div flex>
 							<h3>Description</h3>
 							<md-divider></md-divider>
 							<p>{{currentTask.description}}</p>
 						</div>
+					</div>
+
+					<div class="md-details-update" ng-show="isCreator && user.signedIn">
+						<md-button class="md-primary red-button" ng-click="showEditModal($event, currentTask)">Update the task</md-button>
 					</div>
 
 				</md-whiteframe>

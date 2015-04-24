@@ -52,6 +52,12 @@ $dark-grey		: #EEEEEE;
 			font-weight: 300;
 		}
 	}
+	.md-details-update {
+		.md-primary {
+			position: relative !important;
+			float: right !important;
+		}
+	}
 }
 
 .md-tasks-tabs {
