@@ -1,9 +1,9 @@
 function User($auth) {
 
-	var user = $auth.validateUser();
-
 	var User = {
-		currentUser: user.$$state.value,
+		currentUser: function() {
+			return $auth.validateUser().$$state.value;
+		},
 
 		userLogin: function(user) {
 			return $auth.submitLogin({

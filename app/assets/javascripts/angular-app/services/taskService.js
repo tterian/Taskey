@@ -1,4 +1,4 @@
-function Task($resource, User) {
+function Task($resource) {
 
 	var tasks = $resource('/api/tasks/:taskId', 
 		{
@@ -8,9 +8,6 @@ function Task($resource, User) {
 			get:    {method: 'GET'},
 			update: {method: 'PATCH'}
 		});
-
-
-	var currentUser = User.currentUser;
 
 	var Task = {
 		all: tasks.query(),

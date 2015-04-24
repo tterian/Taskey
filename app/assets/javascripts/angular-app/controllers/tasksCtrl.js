@@ -2,20 +2,31 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 
 	$scope.tasks = Task.all;
 	$scope.updatedAt = '-updated_at';
-	$scope.currentTask = '';
 	$scope.isCreator = 'false';
-	$scope.currentUser = User.currentUser;
 
-	var id = User.currentUser.id % 11 + 1;
-	var avatars = ["actor", "agent", "anonymous", "astronaut", "basketball", "bomberman", "dead", "engineering1", "engineering2", "maid", "matrix"];
+	$scope.avatars = [
+			"actor",
+			"agent",
+			"anonymous",
+			"astronaut",
+			"basketball",
+			"bomberman",
+			"dead",
+			"engineering1",
+			"engineering2",
+			"maid",
+			"matrix"
+	];
 
 	$scope.createTask = function(task) {
+		var user = User.currentUser();
+		var id = User.currentUser().id % 11;
 		var extendedTask = {
 			title: task.title,
 			status: 'open',
 			description: task.description,
-			poster: $scope.currentUser.email,
-			poster_avatar: avatars[id],
+			poster: user.email,
+			poster_avatar: $scope.avatars[id],
 			total: task.total
 		};
 
@@ -33,11 +44,6 @@ function TasksController($scope, $location, $mdDialog, Task, User, Sheet, Toast)
 	$scope.getTask = function(task) {
 		$scope.currentTask = task;
 		$scope.isCreator = ($scope.user.email === task.poster);
-	};
-
-
-	$scope.cancelTask = function(taskId) {
-		Task.cancelTask(taskId);
 	};
 
 
