@@ -25,19 +25,19 @@ development:
  database: db/task_development
  host: localhost
  username: tigranas
- password: Virl645830
+ password:
 
 test:
  <<: *default
  database: db/task_test
  host: localhost
  username: tigranas
- password: Virl645830
+ password:
 
 production:
  <<: *default
  database: db/task_production
  host: localhost
  username: tigranas
- password: Virl645830
+ password:
 
